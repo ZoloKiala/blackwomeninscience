@@ -1,0 +1,19 @@
+asgiref==3.2.10
+certifi==2020.6.20
+chardet==3.0.4
+dj-database-url==0.5.0
+Django==3.0.8
+django-heroku==0.3.1
+GDAL @ file:///C:/Users/User/Downloads/GDAL-3.1.1-cp38-cp38-win32.whl
+gunicorn==20.0.4
+idna==2.10
+Pillow==8.0.0
+psycopg2==2.8.5
+psycopg2-binary==2.8.5
+python-decouple==3.3
+pytz==2020.1
+requests==2.24.0
+sqlparse==0.3.1
+stripe==2.55.0
+urllib3==1.25.11
+whitenoise==5.2.0
