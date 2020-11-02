@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Donation</title>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="{% static 'img/fav.png' %}">
+	<!-- Author Meta -->
+	<meta name="author" content="colorlib">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Charilife Charity</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main1.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Inter&display=swap" rel="stylesheet">
+
+
+	<!-- Landing page styling -->
+	<style type="text/css">
+
+		body{
+			background-color: #F8F8F8;
+		}
+
+		/* h3, h5{
+			font-family: 'Fjalla One', sans-serif;
+			font-weight: 100;
+			color: red;
+		} */
+
+		h3{
+			font-family: 'Fjalla One', sans-serif;
+			font-weight: 100;
+			font-size: 23px;
+			color: red;
+		}
+
+		h5{
+			font-size: 24px;
+		}
+
+		p{
+			font-family: 'Inter', sans-serif;
+			
+		}
+
+		label{
+			font-family: 'Inter', sans-serif;
+			color: black;
+		}
+
+		hr{
+			color:#fff;
+			background-color: #fff;
+			border-top:1px solid #fff;
+			margin-top:20px;
+			margin-bottom: 20px;
+		}
+
+		#container{
+			width:1200px;
+			margin:0 auto;
+			padding-top: 3%;
+		}
+
+		.upcoming_event_area{
+			padding-bottom:30px
+		}
+
+		.section-gap-top{
+			padding-top:130px}
+
+		.email{
+			padding-left:100px
+		}
+		
+		ul {
+			  list-style-type: circle;
+			  margin: 0;
+  			padding: 15 px;
+		}
+
+
+		.color1 {
+    		background-color:white ;
+		}
+			
+		.column-6{
+			width: 50%;
+			float:left;
+		}
+
+		#left-wrapper{
+			background-color: #ececec;
+			box-shadow: 0 1px 3px 0 #dce0e6;
+		    border-radius: 4px;
+		    border: 1px solid transparent;
+		    padding: 30px;	
+		}
+
+		#right-wrapper{
+			padding: 30px;
+		}
+
+		#profile-pic{
+			width:200px;
+			display:block;
+			margin: 0 auto;
+			border-radius: 50%;
+			float:left;
+
+		}
+
+		#left-wrapper-header{
+			min-width:50%;
+			float:left;
+			padding-left:20px;
+
+		}
+
+		#left-wrapper-header h3{
+			color: red;
+
+		}
+
+		#right-wrapper h3{
+			color: #10a195;
+		}
+
+		.coffee-cup{
+			margin-left: 20px;
+			width: 100px;
+		}
+
+		.coffee-cup2{
+			margin-left: 20px;
+			width: 150px;
+		}
+
+		.coffee-cup3{
+			margin-left: 20px;
+			width: 200px;
+		}
+
+		/* ------------------------ FORM FIELDS ------------------------ */
+
+		.form-field-12{
+			width: 100%;
+			margin-bottom: 10px;
+			padding-top: 5px;
+		}
+
+		
+
+		.form-field-6{
+			width: 50%;
+			float:left;
+			margin-bottom: 10px;
+		}
+
+		.form-field-7{
+			width: 100%;
+			float:left;
+			margin-bottom: 10px;
+		}
+		select{
+			width: 100%;
+			height: 40px!important;
+			box-shadow: 0 1px 3px 0 #dce0e6;
+		    padding: 10px 12px;
+		    border-radius: 4px;
+		    background-color: #fff;
+		    border: 1px solid transparent;
+		    font-size: 16px;
+		    color:	#44464a;
+		}
+
+		input{
+		    box-shadow: 0 1px 3px 0 #dce0e6;
+		    height:40px;
+		    border-radius: 4px;
+		    background-color: #fff;
+		    border: 1px solid transparent;
+		    color:	#44464a;
+		    width: 100%;
+		    padding: 5px;
+		    font-size: 16px;
+
+		}
+
+		input::placeholder {
+		  color: #9fa1a6;
+		}
+
+		/* ------------------------ BUTTON STYLING ------------------------ */
+		.myButton {
+			background-color:#72cca7;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Verdana;
+			font-size:17px;
+			padding:10px;
+			width:100%;
+			border-radius: 0;
+			text-decoration:none;
+			text-align: center;
+			transition: .3s;
+		}
+		.myButton:hover {
+			opacity: .6;
+		}
+
+		@media screen and (max-width:1200px){
+			#container{
+				width:80%;
+			}
+
+			.column-6{
+				width: 100%;
+			}
+		}
+
+		@media screen and (max-width:800px){
+			#container{
+				width:100%;
+			}
+
+			.coffee-cup{
+				margin-left: 20px;
+				width: 50px;
+			}
+
+			.coffee-cup2{
+				margin-left: 20px;
+				width: 75px;
+			}
+
+			.coffee-cup3{
+				margin-left: 20px;
+				width: 100px;
+			}
+
+		}
+	</style>
+
+	<!-- Success page styling -->
+	<style type="text/css">
+		h4{
+			font-family: 'Fjalla One', sans-serif;
+			font-weight: 100;
+			font-size: 24px;
+		}
+
+		#box{
+			max-width: 500px;
+			margin:0 auto;
+			margin-top: 100px;
+			padding:30px;
+			background-color: #fff;
+			text-align: center;
+			box-shadow: 0 1px 3px 0 #dce0e6;
+		    border-radius: 4px;
+		    border: 1px solid transparent;
+		}
+
+		.myButton {
+			background-color:#72cca7;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Verdana;
+			font-size:17px;
+			padding:10px;
+			width:100%;
+			border-radius: 0;
+			text-decoration:none;
+			text-align: center;
+			transition: .3s;
+		}
+		.myButton:hover {
+			opacity: .6;
+		}
+
+		#succes-icon{
+			width: 100px;
+
+		}
+	</style>
+</head>
+<body>
+<!--================ Start Header Area =================-->
+<header class="default-header">
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="{% static 'img/logo.png' %}" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span>
+			</button>
+
+			<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li><a class="active" href="{% url 'index' %}">Home</a></li>
+					<li><a href="{% url 'about' %}">About</a></li>
+					<li><a href="{% url 'causes' %}">programmes </a></li>
+					<li><a href="{% url 'eventpost' %}">Event</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+							Pages
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="event-details.html">Event Details</a>
+							<a class="dropdown-item" href="elements.html">Elements</a>
+						</div>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+							Blog
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="blog.html">Blog</a>
+							<a class="dropdown-item" href="blog-details.html">Blog Details</a>
+						</div>
+					</li>
+					<li><a href="{% url 'contact' %}">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+<!--================ End Header Area =================-->
+
+
+
+
+
+	{% block content %}
+
+	{% endblock content %}
+
+	<!--================ start footer Area =================-->
+	<footer class="footer">
+		<div class="footer-area">
+			<div class="container">
+				<div class="row section_gap">
+					<div class="col-lg-5 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title large_title">About Us</h4>
+							<p>
+								Do you want to be even more successful? Learn to love learning and growth. The more effort you put into
+								improving your skills, the bigger the payoff you will get. Realize that things will be hard at first, but the
+								rewards will be worth it.
+							</p>
+							<p>
+									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</p>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Quick Links</h4>
+							<ul class="list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Shop</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Product</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Contact Us</h4>
+							<div class="ml-5">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									Head Office
+								</p>
+								<p>123, Main Street, Your City</p>
+
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Phone Number
+								</p>
+								<p>
+									+123 456 7890
+								</p>
+
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									free@infoexample.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area =================-->
+
+
+
+</body>
+</html>
