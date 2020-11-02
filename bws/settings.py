@@ -28,7 +28,7 @@ SECRET_KEY = '(x7=qwjx^6_-0#e=**$$t1%$*%#iw646f-3n_58783_yqog9%#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blackwomaninscience.herokuapp.com']
 
 
 # Application definition
