@@ -4,7 +4,6 @@ chardet==3.0.4
 dj-database-url==0.5.0
 Django==3.0.8
 django-heroku==0.3.1
-GDAL @ file:///C:/Users/User/Downloads/GDAL-3.1.1-cp38-cp38-win32.whl
 gunicorn==20.0.4
 idna==2.10
 Pillow==8.0.0
