@@ -44,7 +44,18 @@ class eventPost(models.Model):
     # def get_absolute_url(self):
     #     """Returns the url to access a particular author instance."""
     #     return reverse('eventpost-detail', args=[str(self.id)])
-    
+
+class picture(models.Model):
+
+    about = models.ImageField(upload_to = 'pics')
+    header_bg = models.ImageField(upload_to = 'pics')
+
+   
+
+
+
+
+
 
 
   

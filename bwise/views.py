@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
-from .models import eventPost
+from .models import eventPost, picture
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 import stripe
@@ -15,8 +15,9 @@ stripe.api_key = "sk_test_51Hhtf5BoSJcXeEmytgYmoSEjdMBtNzn8jIpG9bTqaLDSbSkJmRDTs
 def index(request):
 
     event1 = eventPost.objects.all()
+    pic = picture.objects.all()
 
-    return render(request, 'index.html', {'event1': event1})
+    return render(request, 'index.html', {'event1': event1, 'pic': pic})
 
 def about(request):
     return render(request, 'about.html')

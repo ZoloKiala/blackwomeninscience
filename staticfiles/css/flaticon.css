@@ -2,12 +2,13 @@
   	Flaticon icon font: Flaticon
   	Creation date: 24/03/2019 05:26
   	*/
-  
 
+
+    
 @font-face {
-  font-family: Flaticon;
-  src: url("{% static 'css/fonts/Flaticon.eot' %}");
-  src: url(".fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
        url("./Flaticon.woff2") format("woff2"),
        url("./Flaticon.woff") format("woff"),
        url("./Flaticon.ttf") format("truetype"),
