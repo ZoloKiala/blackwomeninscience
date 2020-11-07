@@ -6,8 +6,7 @@
 {% block content %}
 
 	<!--================ start banner Area =================-->
-	{% for pic1 in pic %}
-	<section class="home-banner-area relative" id="home" data-parallax="scroll" data-image-src="{{ pic1.header_bg.url }}">
+	<section class="home-banner-area relative" id="home" data-parallax="scroll" data-image-src="{% static 'img/header-bg1.jpg' %}">
 		<div class="overlay-bg overlay"></div>
 		<div class="container">
 			<div class="row fullscreen justify-content-lg-end">
@@ -24,7 +23,6 @@
 			</div>
 		</div>
 	</section>
-	{% endfor %}
 	<!--================ End banner Area =================-->
 
 	<!--================ Start About Area =================-->
