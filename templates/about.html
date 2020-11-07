@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% static "img" as baseUrl %}
 
 {% block content %}
 
@@ -110,8 +110,9 @@
 	</section>
 	<!--================ End Features Area =================-->
 
+	
 	<!--================ Start Instagram Area =================-->
-	<section class="instagram-area">
+	<section class="instagram-area section-gap-top1">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
@@ -121,49 +122,24 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="instagram-slider owl-carousel">
-			<a href="img/instagram/i1.jpg" class="single-instagram d-block img-pop-up">
+
+			{% for pic1 in pic %}
+
+			<a href="{{ pic1.about.url }}" class="single-instagram d-block img-pop-up">
 				<div class="instagram-img">
-					<img src="img/instagram/i1.jpg" alt="">
+					<img src="{{ pic1.about.url }}" alt="">
 					<div class="instagram-text">
 						<i class="ti-instagram"></i>
 					</div>
 				</div>
 			</a>
-			<a href="img/instagram/i2.jpg" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="img/instagram/i2.jpg" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
-			<a href="img/instagram/i3.jpg" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="img/instagram/i3.jpg" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
-			<a href="img/instagram/i4.jpg" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="img/instagram/i4.jpg" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
-			<a href="img/instagram/i5.jpg" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="img/instagram/i5.jpg" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
+			{% endfor %}
+
 		</div>
 	</section>
+	
 	<!--================ End Instagram Area =================-->
 
 	<!--================ Start CTA Area =================-->

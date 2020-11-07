@@ -14,7 +14,7 @@
 					<h1>
 						Black Women In Science
 					</h1>
-					<h4>More charity. More better life.</h4>
+					<h4>Wonder Women in Science.</h4>
 					<a href="{% url 'membership' %}" class="primary-btn">
 						Join us
 						<i class="ti-angle-right ml-1"></i>
@@ -113,7 +113,7 @@
 						<h4>Become Bolunteer</h4>
 						<p>Multiply is rule light dominion given midst a living i set every bring also of rule Set light fifth best
 							bearing.</p>
-						<a href="#" class="primary-btn2">Learn more</a>
+						<a href="{% url 'membership' %}" class="primary-btn2">Learn more</a>
 					</div>
 				</div>
 			</div>
@@ -367,47 +367,20 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="instagram-slider owl-carousel">
-			<a href="{% static 'img/instagram/i1.jpg' %}" class="single-instagram d-block img-pop-up">
+
+			{% for pic1 in pic %}
+			<a href="{{ pic1.about.url }}" class="single-instagram d-block img-pop-up">
 				<div class="instagram-img">
-					<img src="{% static 'img/instagram/i1.jpg' %}" alt="">
+					<img src="{{ pic1.about.url }}" alt="">
 					<div class="instagram-text">
 						<i class="ti-instagram"></i>
 					</div>
 				</div>
 			</a>
-			<a href="{% static 'img/instagram/i2.jpg' %}" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="{% static 'img/instagram/i2.jpg' %}" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
-			<a href="{% static 'img/instagram/i3.jpg' %}" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="{% static 'img/instagram/i3.jpg' %}" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
-			<a href="{% static 'img/instagram/i4.jpg' %}" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="{% static 'img/instagram/i4.jpg' %}" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
-			<a href="{% static 'img/instagram/i5.jpg' %}" class="single-instagram d-block img-pop-up">
-				<div class="instagram-img">
-					<img src="{% static 'img/instagram/i5.jpg' %}" alt="">
-					<div class="instagram-text">
-						<i class="ti-instagram"></i>
-					</div>
-				</div>
-			</a>
+			{% endfor %}
+
 		</div>
 	</section>
 	<!--================ End Instagram Area =================-->

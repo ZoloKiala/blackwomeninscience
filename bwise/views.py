@@ -20,7 +20,8 @@ def index(request):
     return render(request, 'index.html', {'event1': event1, 'pic': pic})
 
 def about(request):
-    return render(request, 'about.html')
+    pic = picture.objects.all()
+    return render(request, 'about.html', {'pic': pic})
 
 def donation(request):
     return render(request, 'donation.html')

@@ -48,7 +48,7 @@ class eventPost(models.Model):
 class picture(models.Model):
 
     about = models.ImageField(upload_to = 'pics')
-    header_bg = models.ImageField(upload_to = 'pics')
+    desc = models.TextField(default = True)
 
    
 
