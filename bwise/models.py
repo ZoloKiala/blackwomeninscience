@@ -50,6 +50,15 @@ class picture(models.Model):
     about = models.ImageField(upload_to = 'pics')
     desc = models.TextField(default = True)
 
+
+class Otherpicture(models.Model):
+
+    header_bg = models.ImageField(upload_to = 'pics')
+    logo = models.ImageField(upload_to = 'pics')
+    about = models.ImageField(upload_to = 'pics')
+    about_video = models.ImageField(upload_to = 'pics')
+
+
    
 
 

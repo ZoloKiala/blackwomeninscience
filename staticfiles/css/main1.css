@@ -28,3 +28,8 @@
   
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;}
+
+    .section-gap-top1{
+      padding-top:10px}
+    @media (max-width: 991px)
+    {.section-gap-top1{padding-top:10px}}
