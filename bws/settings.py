@@ -31,6 +31,26 @@ DEBUG = True
 ALLOWED_HOSTS = ['blackwomaninscience.herokuapp.com']
 
 
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# DEFAULT_FROM_EMAIL = 'zolokiala@gmail.com'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+DEFAULT_FROM_EMAIL = 'serkial1@yahoo.fr'
+EMAIL_HOST = 'smtp.sendgrid.net' # new
+#EMAIL_HOST_USER = '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' # new
+EMAIL_HOST_USER = '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' #
+EMAIL_HOST_PASSWORD = 'Promesse12Promesse12' # new
+EMAIL_PORT = 587 # new
+EMAIL_USE_TLS = True # new
+#SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+
+
+
+
+
 # Application definition
 
 INSTALLED_APPS = [

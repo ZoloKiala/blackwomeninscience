@@ -58,6 +58,31 @@ class Otherpicture(models.Model):
     about = models.ImageField(upload_to = 'pics')
     about_video = models.ImageField(upload_to = 'pics')
 
+class membership(models.Model):
+
+    province_choices = (
+        ('Eastern Cape', 'Eastern Cape'),
+        ('Free State', 'Free State'),
+        ('Gauteng', 'Gauteng'),
+        ('KwaZulu-Natal', 'KwaZulu-Natal'),
+        ('Limpopo', 'Limpopo'),
+        ('Mpumalanga', 'Mpumalanga'),
+        ('Northern Cape', 'Northern Cape'),
+        ('Western Cape', 'Western Cape')
+    )
+
+    fullname = models.CharField(max_length = 200)
+    email = models.EmailField(unique = True)
+    province = models.CharField(max_length = 200, choices= province_choices)
+    university =models.CharField(max_length = 200)
+
+    def __str__(self):
+        return self.fullname + ' | ' + str(self.university)
+
+
+
+
+
 
    
 

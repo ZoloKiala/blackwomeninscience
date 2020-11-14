@@ -55,13 +55,13 @@
           <h2 class="contact-title">Get in Touch with us</h2>
         </div>
         <div class="col-lg-8">
-          <form class ="form-contact contact_form"  method="post" id="contactForm"
-          novalidate="novalidate" >
+          <form class="form-contact contact_form" action="{% url 'index' %}" method="post" id="contactForm"
+            novalidate="novalidate">
 							{% csrf_token %}
 
-              {{ form.as_p }}
-         
+ 
 
+              
             <div class="form-group mt-2 mb-5 mb-lg-0">
               <button type="submit" class="button button-contactForm primary-btn">Send Message</button>
             </div>
