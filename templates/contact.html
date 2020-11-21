@@ -1,25 +1,37 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %} Contact {% endblock %}
 
-{% block content %}
-
-	<!--================ Start top-section Area =================-->
-	<section class="banner-area relative">
-		<div class="overlay overlay-bg"></div>
-		<div class="container">
-			<div class="row justify-content-lg-end align-items-center banner-content">
-				<div class="col-lg-5">
-					<h1 class="text-white">Contact</h1>
-					<p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are great move</p>
+     	{% extends 'base.html' %}
+		{% load static %}
+		{% block title %} Contact {% endblock %}
+		
+		{% block content %}
+		
+			<!--================ Start top-section Area =================-->
+			<section class="banner-area relative">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row justify-content-lg-end align-items-center banner-content">
+						<div class="col-lg-5">
+							<h1 class="text-white">Contact</h1>
+							<p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are great move</p>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End top-section Area =================-->
+			</section>
+			<!--================ End top-section Area =================-->
 
 
   <!-- ================ contact section start ================= -->
+  
+  <br/><br/><br/>
+  {% if name %}
+  <center>
+	<h2>Thanks {{ name }}</h2>
+	<p> We received your email and will respond shortly</p>
+  </center>
+<br/><br/><br/>
+
+{% else %}
+
   <section class="section-gap">
     <div class="container">
       <div class="d-none d-sm-block mb-5 pb-4">
@@ -52,16 +64,35 @@
 
       <div class="row">
         <div class="col-12">
-          <h2 class="contact-title">Get in Touch with us</h2>
+          <h2 class="contact-title">Get in Touch</h2>
         </div>
         <div class="col-lg-8">
-          <form class ="form-contact contact_form"  method="post" id="contactForm"
-          novalidate="novalidate" >
-							{% csrf_token %}
+          <form class="form-contact contact_form" action="{% url 'contact' %}" method="post" id="contactForm"
+			novalidate="novalidate">
+			{% csrf_token %}
 
-              {{ form.as_p }}
-         
-
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder="Enter Message"></textarea>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Enter email address">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
+                </div>
+              </div>
+            </div>
             <div class="form-group mt-2 mb-5 mb-lg-0">
               <button type="submit" class="button button-contactForm primary-btn">Send Message</button>
             </div>
@@ -95,5 +126,7 @@
     </div>
   </section>
   <!-- ================ contact section end ================= -->
+
+{% endif %}
 
   {% endblock %}

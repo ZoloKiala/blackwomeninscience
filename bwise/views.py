@@ -3,16 +3,12 @@ from django.views.generic import ListView, DetailView
 from .models import eventPost, picture, Otherpicture
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
-import stripe
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from bwise.forms import NewMemberForm, ContactForm
+from .forms import NewMemberForm
 from django.conf import settings
 
-
-### Strip key
-stripe.api_key = "sk_test_51Hhtf5BoSJcXeEmytgYmoSEjdMBtNzn8jIpG9bTqaLDSbSkJmRDTsDb8JNZnJXcTPbX8SithLc35iVhFCpPPpRS500evxnmrXS"
 
 
 # Create your views here.
@@ -71,57 +67,33 @@ def event_detail(request, pk):
     return render(request, 'eventpost_detail.html', context)
 
 
+def contact(request):
+    if request.method == 'POST':
+        message = request.POST['message']
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
 
+        send_mail(
+            subject, #subject
+            message, #message
+            email, # from email
+            ['serkial1@yahoo.fr'], # To Email
+        )
 
-def contactView(request):
-    if request.method == 'GET':
-        form = ContactForm()
+        return render(request, "contact.html", {'name': name})
+
     else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['serkial1@yahoo.fr'], fail_silently=True)
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return render(request, 'success1.html')
-    return render(request, "contact.html", {'form': form})
+        return render(request, "contact.html", {})
+
+        
 
 def successView(request):
     return render(request, 'success.html')
 
-def charge(request):
-
-
-	if request.method == 'POST':
-		print('Data:', request.POST)
-
-		amount = int(request.POST['amount'])
-
-		customer = stripe.Customer.create(
-			email=request.POST['email'],
-			name=request.POST['nickname'],
-			source=request.POST['stripeToken']
-			)
-
-		charge = stripe.Charge.create(
-			customer=customer,
-			amount=amount*100,
-			currency='usd',
-			description="Donation"
-			)
-
-	return redirect(reverse('success', args=[amount]))
-
-
 
 def successMsg(request):
-
 	return render(request, 'success.html')
-
-
 
 
 
