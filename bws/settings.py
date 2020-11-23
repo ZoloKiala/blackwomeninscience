@@ -31,30 +31,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['blackwomaninscience.herokuapp.com']
 
 
-
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# DEFAULT_FROM_EMAIL = 'zolokiala@gmail.com'
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
-# #DEFAULT_FROM_EMAIL = 'serkial1@yahoo.fr'
-# EMAIL_HOST = 'smtp.sendgrid.net' # new
-# EMAIL_HOST_USER = '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' # new
-# #SENDGRID_API_KEY = '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' #
-# EMAIL_HOST_PASSWORD = '123456789123456789' # new
-# EMAIL_PORT = 587 # new
-# EMAIL_USE_TLS = True # new
-# SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-
-
-
-
-
-
-
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -176,14 +152,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST_USER = '587'
 # EMAIL_HOST_PASSWORD = 'zolokiala@gmail.com'
-# EMAIL_PORT = '213569675@'
+# EMAIL_PORT = ''
 # EMAIL_USE_TLS = True
 
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'zolokiala@gmail.com'
-EMAIL_HOST_PASSWORD = '213569675@'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 
