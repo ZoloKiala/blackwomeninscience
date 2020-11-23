@@ -30,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['blackwomaninscience.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
