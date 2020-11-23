@@ -58,7 +58,7 @@ class Otherpicture(models.Model):
     about = models.ImageField(upload_to = 'pics')
     about_video = models.ImageField(upload_to = 'pics')
 
-class membership(models.Model):
+class Membership(models.Model):
 
     province_choices = (
         ('Eastern Cape', 'Eastern Cape'),
@@ -77,7 +77,107 @@ class membership(models.Model):
     university =models.CharField(max_length = 200)
 
     def __str__(self):
-        return self.fullname + ' | ' + str(self.university)
+        return self.fullname
+
+class BWSmembership(models.Model):
+
+    province_choices = (
+        ('Eastern Cape', 'Eastern Cape'),
+        ('Free State', 'Free State'),
+        ('Gauteng', 'Gauteng'),
+        ('KwaZulu-Natal', 'KwaZulu-Natal'),
+        ('Limpopo', 'Limpopo'),
+        ('Mpumalanga', 'Mpumalanga'),
+        ('Northern Cape', 'Northern Cape'),
+        ('Western Cape', 'Western Cape')
+    )
+
+    genre_choices = (
+        ('male', 'male'),
+        ('female', 'female'), 
+    )
+  
+    age_choices = (
+        ('18-24', '18-24'),
+        ('25-29', '25-29'), 
+         ('30-34', '30-34'),
+        ('35-39', '35-39'), 
+         ('40-49', '40-49'),
+        ('49 and older', '49 and older'), 
+    )
+
+    race_choices = (
+        ('african', 'african'),
+        ('white', 'white'),
+        ('indian', 'indian'),  
+        ('color', 'color'),
+
+    )
+
+    town_choices = (
+        ('Johannesburg', 'Johannesburg'),
+        ('Durban', 'Durban'),
+        ('indian', 'indian'),  
+        ('Webinar', 'Webinar'),
+
+    )
+    qualification_choices = (
+        ('Post PhD', 'Post PhD'),
+        ('PhD', 'PhD'),
+        ('Masters', 'Masters'),  
+        ('Honours', 'Honours'),
+        ('Bachelors', 'Bachelors'),
+        ('Diploma', 'Diploma'),
+
+    )
+
+    occupation_choices = (
+     
+        ('Working', 'Working'),
+        ('Working student', 'Working student'),
+        ('Student', 'Student'),  
+
+    )
+
+    interested_choices = (
+    
+        ('yes', 'yes'),
+        ('no', 'no'), 
+    )
+
+    timevolunteer_choices = (
+        ('up to 2 hrs', 'up to 2 hrs'),
+        ('up to 4 hrs', 'up to 4 hrs'), 
+        ('up to 6 hrs', 'up to 6 hrs'),
+        ('1 full day', '1 full day'),
+    )
+
+
+    Name = models.CharField(max_length = 200)
+    Surname = models.CharField(max_length = 200)
+    Gender = models.CharField(max_length = 200, choices= genre_choices)
+    Cellphone = models.IntegerField()
+    Email = models.EmailField(unique = True)
+    Age = models.CharField(max_length = 200, choices= age_choices)
+    Province = models.CharField(max_length = 200, choices= province_choices)
+    University =models.CharField(max_length = 200)
+    Race = models.CharField(max_length = 200, choices= race_choices)
+    Country = models.CharField(max_length = 200)
+    Town_attend_workshops = models.CharField(max_length = 200, choices = town_choices)
+    Last_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
+    Current_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
+    Scientific_discipline = models.CharField(max_length = 200)
+    Subject_major = models.CharField(max_length = 200)
+    Occupation = models.CharField(max_length = 200)
+    Where_hear_organisation = models.CharField(max_length = 200)
+    Interested_mentorship_programs = models.CharField(max_length = 200,  choices = interested_choices)
+    Time_to_volunteer = models.CharField(max_length = 200,  choices = timevolunteer_choices)
+    Conducted_TV_interview = models.CharField(max_length = 200,  choices = interested_choices)
+    Description = models.CharField(max_length = 400)
+    Date = models.DateTimeField(auto_now_add = timezone.now)
+
+    def __str__(self):
+        return self.Name
 
 
 

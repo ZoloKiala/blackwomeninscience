@@ -1,17 +1,51 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import eventPost, picture, Otherpicture
+from .models import eventPost, picture, Otherpicture, BWSmembership
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .forms import NewMemberForm
+from .forms import NewMemberForm, NewBwsMemberForm
 from django.conf import settings
+from .models import Membership
 
+#Pdf options
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 
 # Create your views here.
+
+class MemberListView(ListView):
+    model = BWSmembership
+    template_name = 'invoice.html'
+    ordering = ['-Date']
+
+def member_render_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    member = get_object_or_404(BWSmembership, pk=pk)
+
+    template_path = 'pdf.html'
+    context = {'member': member}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="Invoice_membership.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
 
 def index(request):
 
@@ -30,11 +64,11 @@ def donation(request):
 
 def membership(request):
 
-	form = NewMemberForm()
+	form = NewBwsMemberForm()
 
 	if request.method == 'POST':
 
-		form = NewMemberForm(request.POST)
+		form = NewBwsMemberForm(request.POST)
 
 		if form.is_valid():
 			form.save(commit=True)
@@ -45,6 +79,31 @@ def membership(request):
 			print('error form invalid')
 
 	return render(request, 'membership.html', {'form': form})
+
+
+
+
+def render_pdf_view(request):
+    template_path = 'success1.html'
+    context = {'myvar': 'this is your template context'}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+def successMsg(request):
+
+	return render(request, 'success1.html')
 
 
 def causes(request):
@@ -92,8 +151,7 @@ def successView(request):
     return render(request, 'success.html')
 
 
-def successMsg(request):
-	return render(request, 'success.html')
+
 
 
 
