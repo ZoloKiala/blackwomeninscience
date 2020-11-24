@@ -1,9 +1,9 @@
 from django.db import models
 from datetime import datetime
 from django.utils import timezone
+import datetime
 
 # Create your models here.
-
 
 
 class eventPost(models.Model):
@@ -31,6 +31,19 @@ class eventPost(models.Model):
 
     def dateday(self):
         return int(self.date1.strftime("%d")) - int(self.dateStart.strftime("%d"))
+
+    def dateday1(self):
+        dateleft = int(datetime.date.today().day) - int(self.dateStart.strftime("%d"))
+        return dateleft
+
+    def datehour1(self):
+        dateleft = int(datetime.datetime.now().hour) - int(self.dateStart.strftime("%H"))
+        return dateleft
+
+    def datemun1(self):
+        dateleft = int(datetime.datetime.now().minute) - int(self.dateStart.strftime("%M"))
+        return dateleft
+
     
     def datehour(self):
         return int(self.date1.strftime("%H")) - int(self.dateStart.strftime("%H"))
@@ -168,7 +181,7 @@ class BWSmembership(models.Model):
     Current_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
     Scientific_discipline = models.CharField(max_length = 200)
     Subject_major = models.CharField(max_length = 200)
-    Occupation = models.CharField(max_length = 200)
+    Occupation = models.CharField(max_length = 200, choices = occupation_choices)
     Where_hear_organisation = models.CharField(max_length = 200)
     Interested_mentorship_programs = models.CharField(max_length = 200,  choices = interested_choices)
     Time_to_volunteer = models.CharField(max_length = 200,  choices = timevolunteer_choices)
