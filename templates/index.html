@@ -316,31 +316,22 @@
 						<a href="#" class="primary-btn2">Show more</a>
 					</div>
 				</div>
+
+				{% for art in article %}
 				<div class="col-lg-4 col-md-6 single-blog">
 					<div class="thumb">
-						<img class="img-detail" src="{% static 'img/blog/latest-post/article1.png' %}" alt="">
+						<img class="img-detail" src="{{ art.image.url }}" alt="">
 					</div>
 					<div class="">
 					
 						<a href="blog-single.html">
-							<h4>Health and wellness </h4>
+							<h4> {{ art.title }} </h4>
 						</a>
 
 					</div>
 				</div>
+               {% endfor %}
 
-				<div class="col-lg-4 col-md-6 single-blog">
-					<div class="thumb">
-						<img class="img-detail" src="{% static 'img/blog/latest-post/article2.png' %}" alt="">
-					</div>
-					<div class="">
-					
-						<a href="blog-single.html">
-							<h4>Academics and Research</h4>
-						</a>
-					
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>

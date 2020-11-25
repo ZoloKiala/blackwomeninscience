@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import eventPost, picture, Otherpicture, BWSmembership
+from .models import eventPost, picture, Otherpicture, BWSmembership, Article
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
@@ -52,8 +52,9 @@ def index(request):
     event1 = eventPost.objects.all()
     pic = picture.objects.all()
     opic = Otherpicture.objects.all()
+    article = Article.objects.all()
 
-    return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic})
+    return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic, 'article':article })
 
 def about(request):
     pic = picture.objects.all()
