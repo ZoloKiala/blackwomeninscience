@@ -267,17 +267,17 @@
 									<p>
 										{{ event.description|truncatechars:100 }}
 									</p>
-									<div class="d-flex count_time justify-content-lg-start justify-content-center" id="clockdiv1">
+									<div class="d-flex justify-content-lg-start justify-content-center" id="">
 										<div class="single_time">
-											<h4 class="days"> {{ event.dateday }} </h4>
+											<h4 class="days"> {{ event.dateday1 }} </h4>
 											<p>Days</p>
 										</div>
 										<div class="single_time">
-											<h4 class="hours">{{ event.datehour }}</h4>
+											<h4 class="hours">{{ event.datehour1 }}</h4>
 											<p>Hours</p>
 										</div>
 										<div class="single_time">
-											<h4 class="minutes">{{ event.dateyear }}</h4>
+											<h4 class="minutes">{{ event.dateyear1 }}</h4>
 											<p>Minutes</p>
 										</div>
 									</div>
@@ -319,8 +319,8 @@
 
 				{% for art in article %}
 				<div class="col-lg-4 col-md-6 single-blog">
-					<div class="thumb">
-						<img class="img-detail" src="{{ art.image.url }}" alt="">
+					<div class="thumb ">
+						<img class="img-detail" src="{{ art.image.url }}" alt="" class="img-detail">
 					</div>
 					<div class="">
 					
@@ -354,7 +354,7 @@
 
 			<a href="{{ pic1.about.url }}" class="single-instagram d-block img-pop-up">
 				<div class="instagram-img">
-					<img src="{{ pic1.about.url }}" alt="">
+					<img class="img-detail"  src="{{ pic1.about.url }}" alt="">
 					<div class="instagram-text">
 						<i class="ti-instagram"></i>
 					</div>
