@@ -19,23 +19,21 @@ class NewMemberForm(forms.ModelForm):
 
 class NewBwsMemberForm(forms.ModelForm):
 
-    Name = forms.CharField(label="What is your name",)
+    Name = forms.CharField(label="What is your name", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Surname = forms.CharField(label="What is your surname",)
+    Surname = forms.CharField(label="What is your surname", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     genre_choices = [
         ('male', 'Male'),
         ('female', 'Female'), 
       ]
 
-    Gender = forms.ChoiceField(choices=genre_choices)
+    Gender = forms.ChoiceField(choices=genre_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
-    Cellphone = forms.IntegerField(
-	    
-                   )
+    Cellphone = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
     Email = forms.EmailField( 
-        label="Please enter your email address",)
+        label="Please enter your email address", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     age_choices = [
         ('18-24', '18-24'),
@@ -44,9 +42,10 @@ class NewBwsMemberForm(forms.ModelForm):
         ('35-39', '35-39'), 
          ('40-49', '40-49'),
         ('49 and older', '49 and older'), 
+        
     ]
 
-    Age = forms.ChoiceField(choices=age_choices)
+    Age = forms.ChoiceField(choices=age_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
     province_choices = [
         ('Eastern Cape', 'Eastern Cape'),
@@ -59,8 +58,9 @@ class NewBwsMemberForm(forms.ModelForm):
         ('Western Cape', 'Western Cape')
     ]
 
-
-    University = forms.CharField()
+    Province = forms.ChoiceField(choices=province_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+    
+    University = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
     race_choices = [
         ('african', 'African'),
@@ -70,9 +70,9 @@ class NewBwsMemberForm(forms.ModelForm):
 
     ]
 
-    Race = forms.ChoiceField(choices= race_choices)
+    Race = forms.ChoiceField(choices= race_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
-    Country = forms.CharField()
+    Country = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
     
     town_choices = (
@@ -81,7 +81,8 @@ class NewBwsMemberForm(forms.ModelForm):
 
     )
 
-    Town_attend_workshops = forms.ChoiceField(label="Select preferred town to attend BWIS Workshops/ Activities", choices= town_choices)
+    Town_attend_workshops = forms.ChoiceField(label="Select preferred town to attend BWIS Workshops/ Activities", choices= town_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
     qualification_choices = (
         ('Post PhD', 'Post PhD'),
@@ -93,13 +94,15 @@ class NewBwsMemberForm(forms.ModelForm):
 
     )
 
-    Last_academic_qualification = forms.ChoiceField(label="Last obtained academic qualification", choices= qualification_choices)
+    Last_academic_qualification = forms.ChoiceField(label="Last obtained academic qualification", choices= qualification_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
-    Current_academic_qualification = forms.ChoiceField(label="Current Academic studies", choices= qualification_choices)
+    Current_academic_qualification = forms.ChoiceField(label="Current Academic studies", choices= qualification_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
-    Scientific_discipline = forms.CharField(label="What is your scientific discipline ?")
+    Scientific_discipline = forms.CharField(label="What is your scientific discipline ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Subject_major = forms.CharField(label="What is your subject major ?")
+    Subject_major = forms.CharField(label="What is your subject major ?", )
 
     occupation_choices = [
      
@@ -109,7 +112,8 @@ class NewBwsMemberForm(forms.ModelForm):
 
     ]
 
-    Occupation = forms.ChoiceField(label="What is your occupation ?", choices= occupation_choices)
+    Occupation = forms.ChoiceField(label="What is your occupation ?", choices= occupation_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
     hear_choices = (
         ('social media', 'Social media'),
@@ -119,7 +123,8 @@ class NewBwsMemberForm(forms.ModelForm):
         ('university', 'University'),
     )
 
-    Where_hear_organisation = forms.ChoiceField(label="Where did you hear about our organisation ?", choices= hear_choices) 
+    Where_hear_organisation = forms.ChoiceField(label="Where did you hear about our organisation ?", choices= hear_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'})) 
 
     interested_choices = [
     
@@ -127,7 +132,8 @@ class NewBwsMemberForm(forms.ModelForm):
         ('no', 'No'), 
     ]
 
-    Interested_mentorship_programs = forms.ChoiceField(label="Are you interested in mentorship programs ?", choices= interested_choices) 
+    Interested_mentorship_programs = forms.ChoiceField(label="Are you interested in mentorship programs ?", choices= interested_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'})) 
 
     timevolunteer_choices = (
         ('up to 2 hrs', 'up to 2 hrs'),
@@ -137,9 +143,9 @@ class NewBwsMemberForm(forms.ModelForm):
     )
 
     Time_to_volunteer = forms.ChoiceField(label="How much time can you volunteer in BWIS activities ?", choices= timevolunteer_choices,
-    widget=forms.Select(attrs={'class':'form-control'})) 
+    widget=forms.Select(attrs={'style': 'padding-left:10px', 'class':'form-control', 'class': 'narrow-select'})) 
 
-    
+
     interested_choices = (
     
         ('yes', 'Yes'),
@@ -147,7 +153,7 @@ class NewBwsMemberForm(forms.ModelForm):
     )
 
     Conducted_TV_interview = forms.ChoiceField(label="Have you conducted Radio/TV interview ?", choices= interested_choices,
-    widget=forms.Select(attrs={'style': 'width:10px', 'class':'form-control'})) 
+    widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control', 'class': 'narrow-select'})) 
 
     Description = forms.CharField(label="Please provide a brief description of yourself ?",
     max_length = 400,
