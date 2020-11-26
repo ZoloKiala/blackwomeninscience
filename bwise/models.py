@@ -171,6 +171,14 @@ class BWSmembership(models.Model):
         ('1 full day', '1 full day'),
     )
 
+    hear_choices = (
+        ('social media', 'Social media'),
+        ('radio', 'Radio'), 
+        ('friend', 'Friend'),
+        ('colleague', 'Colleague'),
+        ('university', 'University'),
+    )
+
 
     Name = models.CharField(max_length = 200)
     Surname = models.CharField(max_length = 200)
@@ -188,7 +196,7 @@ class BWSmembership(models.Model):
     Scientific_discipline = models.CharField(max_length = 200)
     Subject_major = models.CharField(max_length = 200)
     Occupation = models.CharField(max_length = 200, choices = occupation_choices)
-    Where_hear_organisation = models.CharField(max_length = 200)
+    Where_hear_organisation = models.CharField(max_length = 200, choices = hear_choices)
     Interested_mentorship_programs = models.CharField(max_length = 200,  choices = interested_choices)
     Time_to_volunteer = models.CharField(max_length = 200,  choices = timevolunteer_choices)
     Conducted_TV_interview = models.CharField(max_length = 200,  choices = interested_choices)

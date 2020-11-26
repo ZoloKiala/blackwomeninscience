@@ -24,8 +24,8 @@ class NewBwsMemberForm(forms.ModelForm):
     Surname = forms.CharField(label="What is your surname",)
 
     genre_choices = [
-        ('male', 'male'),
-        ('female', 'female'), 
+        ('male', 'Male'),
+        ('female', 'Female'), 
       ]
 
     Gender = forms.ChoiceField(choices=genre_choices)
@@ -63,10 +63,10 @@ class NewBwsMemberForm(forms.ModelForm):
     University = forms.CharField()
 
     race_choices = [
-        ('african', 'african'),
-        ('white', 'white'),
-        ('indian', 'indian'),  
-        ('color', 'color'),
+        ('african', 'African'),
+        ('white', 'White'),
+        ('indian', 'Indian'),  
+        ('color', 'Color'),
 
     ]
 
@@ -78,8 +78,6 @@ class NewBwsMemberForm(forms.ModelForm):
     town_choices = (
         ('Johannesburg', 'Johannesburg'),
         ('Durban', 'Durban'),
-        ('indian', 'indian'),  
-        ('Webinar', 'Webinar'),
 
     )
 
@@ -113,7 +111,15 @@ class NewBwsMemberForm(forms.ModelForm):
 
     Occupation = forms.ChoiceField(label="What is your occupation ?", choices= occupation_choices)
 
-    Where_hear_organisation = forms.CharField(label="Where did you hear about our organisation ?") 
+    hear_choices = (
+        ('social media', 'Social media'),
+        ('radio', 'Radio'), 
+        ('friend', 'Friend'),
+        ('colleague', 'Colleague'),
+        ('university', 'University'),
+    )
+
+    Where_hear_organisation = forms.ChoiceField(label="Where did you hear about our organisation ?", choices= hear_choices) 
 
     interested_choices = [
     
@@ -141,11 +147,19 @@ class NewBwsMemberForm(forms.ModelForm):
     )
 
     Conducted_TV_interview = forms.ChoiceField(label="Have you conducted Radio/TV interview ?", choices= interested_choices,
-    widget=forms.Select(attrs={'style': 'width:1000px', 'class':'form-control'})) 
+    widget=forms.Select(attrs={'style': 'width:10px', 'class':'form-control'})) 
 
     Description = forms.CharField(label="Please provide a brief description of yourself ?",
     max_length = 400,
     widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
+
+
+
+
+
+    
+
+
 
 
 
