@@ -155,10 +155,12 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 MEDIA_URL = '//%s.s3.amazonaws.com/media/pics' % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
