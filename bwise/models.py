@@ -77,6 +77,35 @@ class Otherpicture(models.Model):
     about = models.ImageField(upload_to = 'pics')
     about_video = models.ImageField(upload_to = 'pics')
 
+class Donation(models.Model):
+
+    Reason_donation = (
+        ('Fundraising', 'Fundraising'),
+        ('Mentorship program', 'Mentorship program'),
+
+    )
+
+    Amount_donation = (
+        ('R500', 'R500'),
+        ('R1000', 'R1000'),
+        ('R1500', 'R1500'),
+
+    )
+
+    Name = models.CharField(max_length = 200)
+    Surname = models.CharField(max_length = 200)
+    Organization = models.CharField(max_length = 200)
+    Cellphone = models.IntegerField()
+    Email = models.EmailField(unique = True)
+    Reason_donation =  models.CharField(max_length = 200, choices= Reason_donation)
+    Amount_donation =  models.CharField(max_length = 200, choices= Amount_donation)
+    Date = models.DateTimeField(auto_now_add = timezone.now)
+
+    def __str__(self):
+        return self.Name
+
+
+
 class Membership(models.Model):
 
     province_choices = (
@@ -200,13 +229,99 @@ class BWSmembership(models.Model):
     Interested_mentorship_programs = models.CharField(max_length = 200,  choices = interested_choices)
     Time_to_volunteer = models.CharField(max_length = 200,  choices = timevolunteer_choices)
     Conducted_TV_interview = models.CharField(max_length = 200,  choices = interested_choices)
+    media_handle = models.CharField(max_length = 200, default=True)
     Description = models.CharField(max_length = 400)
     Date = models.DateTimeField(auto_now_add = timezone.now)
+    
+
 
     def __str__(self):
         return self.Name
 
 
+class Membership(models.Model):
+
+    province_choices = (
+        ('Eastern Cape', 'Eastern Cape'),
+        ('Free State', 'Free State'),
+        ('Gauteng', 'Gauteng'),
+        ('KwaZulu-Natal', 'KwaZulu-Natal'),
+        ('Limpopo', 'Limpopo'),
+        ('Mpumalanga', 'Mpumalanga'),
+        ('Northern Cape', 'Northern Cape'),
+        ('Western Cape', 'Western Cape')
+    )
+
+    fullname = models.CharField(max_length = 200)
+    email = models.EmailField(unique = True)
+    province = models.CharField(max_length = 200, choices= province_choices)
+    university =models.CharField(max_length = 200)
+
+    def __str__(self):
+        return self.fullname
+
+class BWSmentorship(models.Model):
+
+    province_choices = (
+        ('Eastern Cape', 'Eastern Cape'),
+        ('Free State', 'Free State'),
+        ('Gauteng', 'Gauteng'),
+        ('KwaZulu-Natal', 'KwaZulu-Natal'),
+        ('Limpopo', 'Limpopo'),
+        ('Mpumalanga', 'Mpumalanga'),
+        ('Northern Cape', 'Northern Cape'),
+        ('Western Cape', 'Western Cape')
+    )
+
+    genre_choices = (
+        ('male', 'male'),
+        ('female', 'female'), 
+    )
+  
+    age_choices = (
+        ('18-24', '18-24'),
+        ('25-29', '25-29'), 
+         ('30-34', '30-34'),
+        ('35-39', '35-39'), 
+         ('40-49', '40-49'),
+        ('49 and older', '49 and older'), 
+    )
+
+    qualification_choices = (
+        ('Post PhD', 'Post PhD'),
+        ('PhD', 'PhD'),
+        ('Masters', 'Masters'),  
+        ('Honours', 'Honours'),
+        ('Bachelors', 'Bachelors'),
+        ('Diploma', 'Diploma'),
+
+    )
+
+
+    timementor_choices = [
+        ('2-5 hours', '2-5 hours'),
+        ('5-10 hours', '5-10 hours'), 
+        ('10-15 hours', '10-15 hours'),
+        ('more than 15 hours', 'more than 15 hours'),
+    ]
+
+
+    Name = models.CharField(max_length = 200)
+    Surname = models.CharField(max_length = 200)
+    Cellphone = models.IntegerField()
+    Email = models.EmailField(unique = True)
+    Age = models.CharField(max_length = 200, choices= age_choices)
+    Province = models.CharField(max_length = 200, choices= province_choices)
+    Country = models.CharField(max_length = 200)
+    Scientific_discipline = models.CharField(max_length = 200)
+    Last_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
+    Share_experience = models.CharField(max_length = 400)
+    Description_idea = models.CharField(max_length = 400)
+    Time_to_mentorship = models.CharField(max_length = 200,  choices = timementor_choices)
+    Date = models.DateTimeField(auto_now_add = timezone.now)
+
+    def __str__(self):
+        return self.Name
 
 
 

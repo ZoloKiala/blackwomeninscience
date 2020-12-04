@@ -12,7 +12,7 @@
 			<div class="row justify-content-lg-end align-items-center banner-content">
 				<div class="col-lg-5">
 					<h1 class="text-white">About Us</h1>
-					<p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are great move</p>
+					<!-- <p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are great move</p> -->
 				</div>
 			</div>
 		</div>
@@ -25,38 +25,38 @@
 			<div class="row align-items-end">
 				<div class="col-lg-5">
 					<div class="about_details lite_bg">
-						<h2>We Are A Non-profit
-							Organization </h2>
-						<p class="top_text">
-							Herb saw set gathered herb image lights it wherein without an evenin you're image moving spirit dominion
-						</p>
+						<h2>BWS </h2>
 						<p class="mb-0">
-							Herb, saw set gathered. Herb image, lights it wherein without. Evening you heav image moving spirit dominion
-							place every one firmament said, isn't creeping. Moveth likeness signs. Subdue upon he likeness. Herb, saw set
-							gathered herb image lights it wherein without evening you resigns.
+							Black Women in Science (BWIS) is an emerging researchers programme that aims 
+							to encourage women participation in STEM careers, technology, mentoring and education. 
+							We do so by approaching the career of a scientist in a trans and inter-disciplinary manner.
+							 This meaning we aim to expose and contribute to the quality
+							 of science graduates entering the professional, business and academic sectors.
 						</p>
-						<a href="#" class="primary-btn mt-5">Read more</a>
+					
 
 						<div class="active-brand-carusel">
 							<div class="single-brand">
-								<img class="mx-auto w-auto" src="img/brands/b1.png" alt="">
+								<img class="mx-auto w-auto" src="{% static 'img/brands/b1a.png' %}" alt="">
 							</div>
 							<div class="single-brand">
-								<img class="mx-auto w-auto" src="img/brands/b2.png" alt="">
+								<img class="mx-auto w-auto" src="{% static 'img/brands/b2a.png' %}" alt="">
 							</div>
 							<div class=" single-brand">
-								<img class="mx-auto w-auto" src="img/brands/b3.png" alt="">
+								<img class="mx-auto w-auto" src="{% static 'img/brands/b3a.png' %}" alt="">
 							</div>
 							<div class=" single-brand">
-								<img class="mx-auto w-auto" src="img/brands/b2.png" alt="">
+								<img class="mx-auto w-auto" src="{% static 'img/brands/b3a.png' %}" alt="">
 							</div>
 						</div>
+						
 					</div>
 				</div>
 				<div class="col-lg-4 offset-lg-3 col-md-6 offset-md-1 d-lg-block d-none">
 					<div class="about_right">
 						<div class="video-inner justify-content-center align-items-center d-flex">
-							<a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=bFT-USXXL_k">
+							<a id="play-home-video" class="video-play-button" 
+							href="https://www.youtube.com/watch?v=VRk411HvmDI"> 
 								<span></span>
 							</a>
 						</div>
@@ -68,13 +68,14 @@
 	</section>
 	<!--================ End About Area =================-->
 
+
 	<!--================ Start Features Area =================-->
 	<section class="features-area section-gap-top">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
 					<div class="section-title">
-						<h2>How <span>Could</span> You Help</h2>
+						<h2><span>Engage</span> With Us</h2>
 					</div>
 				</div>
 			</div>
@@ -83,27 +84,48 @@
 					<div class="feature-item">
 						<i class="fi flaticon-compass"></i>
 						<h4>Give Donation</h4>
-						<p>Multiply is rule light dominion given midst a living i set every bring also of rule Set light fifth best
-							bearing.</p>
-						<a href="#" class="primary-btn2">Learn more</a>
+						<p>Through our work, we mould a unique version of modern female scientists. BWIS integrates academic, 
+							professional, and soci<span id="dots">...</span><span id="more">al-wellbeing aspects to ensure well-roundedness.We embrace the revamped female
+							 scientist and develop her to ensure that she is IN HER ELEMENT at all times. 
+							Help us grow our network with a donation of your choice. Let’s build the next generation’s female leaders!.</span>
+							<button class='myBtn1' onclick="myFunction()" style="border:none" id="myBtn">Read more</button>
+						</p>
+							<br>
+
+						
+						
+
+						<a href="{% url 'donation' %}" class="primary-btn">Donate</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="feature-item">
 						<i class="fi flaticon-desk"></i>
-						<h4>Give Inspiration</h4>
-						<p>Multiply is rule light dominion given midst a living i set every bring also of rule Set light fifth best
-							bearing.</p>
-						<a href="#" class="primary-btn2">Learn more</a>
+						<h4>Our Stories</h4>
+						<p> For every scientist whose work has been recognized and celebrated,
+							 there are thousands who have been accidentally or purposefully forgotten.<span id="dots1">...</span><span id="more1"> 
+							 The contribution of women across all areas of science is still largely overlooked.
+							  Our BWIS fellows are front runners in numerous disciplines indeed. We celebrate 
+							  the many exceptional women who did not allow societal barriers stop them
+							 from pursuing their scientific passions. Celebrate these exceptional women with us!</span>
+							 <button class='myBtn11' onclick="myFunction1()" style="border:none" id="myBtn1">Read more</button></p>
+							<br>
+						<a href="#" class="primary-btn">Learn more</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="feature-item">
 						<i class="fi flaticon-bathroom"></i>
-						<h4>Become Bolunteer</h4>
-						<p>Multiply is rule light dominion given midst a living i set every bring also of rule Set light fifth best
-							bearing.</p>
-						<a href="#" class="primary-btn2">Learn more</a>
+						<h4>Become a mentor</h4>
+						<p>Central to the BWIS fellowship is the creation of ambassadors of excellence in breaking
+							 the mould for young <span id="dots2">...</span><span id="more2">women in science and business by mobilising youth and women leadership 
+							  and igniting a passion for active citizenship and social cohesion. To pass this excellency
+							   to the upcoming female generation—we ask you to join our mentorship
+							 programme and take your stand in building a robust future for women across all STEM disciplines. </span>
+							 <button class='myBtn12' onclick="myFunction2()" style="border:none" id="myBtn2">Read more</button>
+							</p>
+							<br>
+						<a href="{% url 'mentorship' %}" class="primary-btn">  Apply</a>
 					</div>
 				</div>
 			</div>

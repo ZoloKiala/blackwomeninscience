@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import eventPost, picture, Otherpicture, Membership, BWSmembership, Article
+from .models import eventPost, picture, Otherpicture, Membership, BWSmembership, Article, Donation, BWSmentorship
 
 # Register your models here.
 
@@ -8,4 +8,6 @@ admin.site.register(picture)
 admin.site.register(Otherpicture)
 admin.site.register(Membership)
 admin.site.register(BWSmembership)
+admin.site.register(BWSmentorship)
 admin.site.register(Article)
+admin.site.register(Donation)

@@ -1,0 +1,194 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Invoice</title>
+
+<style>
+
+.member {
+    color: rgb(87, 86, 86);
+    font-size: 100%;
+  
+    
+}
+
+.member1 {
+    background:green;
+    color: rgb(87, 86, 86);
+    font-size: 100%;
+    position:absolute;
+    right:0px;
+    width:25%;
+    height:100px;
+    
+}
+
+.memb {
+    color: rgb(7, 7, 7);
+    padding-bottom: 10px;
+    
+}
+
+
+/* table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 300px;
+         }
+
+th, td {
+  padding: 5px;
+}
+
+th {
+  text-align: left;
+}
+
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t01 th {
+  background-color: black;
+  color: white;
+} */
+
+.bill{
+    color: rgb(33, 8, 122);
+}
+
+table{
+    border: none;
+}
+
+tr, th {
+    padding: 2px;
+    text-align: left;
+}
+
+p {
+    padding-bottom: 0px; 
+}
+
+.center_tab {
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+</style>
+
+</head>
+
+<p align=right> <font size="+5"><strong>Invoice</strong></font>  </p>
+  
+<div class="memb">
+    <font size="+2"><strong> <u> Donor Information </u>  </strong> </font>
+</div>
+
+ 
+
+<div class="member">
+    <strong> Name: </strong> {{don.Name}}
+<br>
+<strong>Email: </strong> {{don.Email}}
+<br>
+<strong>Phone No.:</strong> {{don.Cellphone}} 
+<br>
+
+</div>
+
+
+
+
+
+<p align=right> <strong>Date :</strong> {{don.Date|date:"SHORT_DATE_FORMAT"}}   
+<br>
+<strong>INVOICE NO. :</strong> bwis03{{don.pk}}
+</p>
+
+<br>
+<div class="memb"><font size="+2"><strong> <u> Company Information </u> </strong> </font></div>
+
+<div class='member1'>
+    <strong> Company: </strong> Black Women In Science
+    <br>
+    <strong>Email address: </strong> info@bwisglobal.co.za 
+    <br>
+    <strong>Contact person:</strong> Ethel Phiri 
+    <br>
+    <strong>Cellphone:</strong> 0647504360
+    <br>
+</div>
+<hr>
+
+<br>
+
+
+
+    <div class="center_tab">
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+        <th>QUANTITY</th>
+        <th>DESCRIPTION</th>
+        <th>TOTAL (R)</th>
+
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Donation for {{ don.Reason_donation }}</td>
+            <td>{{ don.Amount_donation }}</td>
+        
+        </tr>
+ 
+ 
+      
+
+   
+        </tbody>
+        </table>
+    <hr>
+</div>  
+<div align=left>
+
+<strong>Payment Terms:</strong>
+
+<div class='member'>
+To confirm the donation
+<br>
+Please use Invoice No. as reference
+<br>
+Email us proof of donation
+</div>
+
+<br>
+
+<center>
+<font font size="+3"> <strong> THANK YOU! </strong>  </font>
+    
+
+</center>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

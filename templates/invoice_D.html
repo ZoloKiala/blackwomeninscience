@@ -1,0 +1,90 @@
+{% extends 'template.html' %}
+{% load static %}
+{% static "img" as baseUrl %}
+
+{% block content %}
+	<!--================ start banner Area =================-->
+<section class="banner-area relative">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row justify-content-lg-end align-items-center banner-content">
+			<div class="col-lg-5">
+				<h1 class="text-white">List of Donors</h1>
+				<p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are
+					great move</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================ End banner Area =================-->
+
+
+
+
+<br>
+<br>
+<br>
+<div class="container">
+
+
+<table border="1" style="width:100%" id="t01">
+   
+    <tr>
+        <th style="text-align:left" >List of Donors</th>
+        <th style="text-align:left">Downloads</th>
+
+    </tr>
+    {% for don in object_list %} 
+    <tr>
+        <td style="text-align:left">{{don}}</td>
+        <td style="text-align:left"><a href="{% url 'donor-pdf-view' don.pk %}"><button class="btn btn-primary"> Print Invoice </button></a></td>
+      
+    </tr>
+    {% endfor %}
+    
+</table>
+
+
+</div>
+
+<br>
+<br>
+<br>
+<!--================ Start CTA Area =================-->
+<div class="cta-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <p class="top_text">Subscribe now</p>
+                <h1>Subscribe Now And Receive The
+                    Weekly Newsletter </h1>
+                <div id="mc_embed_signup">
+                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                     method="get">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 mb-lg-0 mb-3">
+                                <input class="form-control" placeholder="Your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'"
+                                 required="" type="email" />
+                            </div>
+                            <div class="col-lg-5 mb-lg-0 mb-3">
+                                <input class="form-control" name="EMAIL" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'"
+                                 required="" type="email" />
+                            </div>
+                            <div class="col-lg-2">
+                                <button class="primary-btn" type="submit">Subscribe</button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text" />
+                                </div>
+
+                                <div class="info"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================ End CTA Area =================-->
+
+{% endblock %}

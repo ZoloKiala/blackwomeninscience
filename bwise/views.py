@@ -6,9 +6,9 @@ from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .forms import NewMemberForm, NewBwsMemberForm
+from .forms import NewMemberForm, NewBwsMemberForm, DonationForm, NewBwsMentorForm
 from django.conf import settings
-from .models import Membership
+from .models import Membership, Donation
 
 #Pdf options
 from django.conf import settings
@@ -24,6 +24,11 @@ class MemberListView(ListView):
     template_name = 'invoice.html'
     ordering = ['-Date']
 
+class DonorListView(ListView):
+    model = Donation
+    template_name = 'invoice_D.html'
+    ordering = ['-Date']
+
 def member_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
     member = get_object_or_404(BWSmembership, pk=pk)
@@ -32,7 +37,7 @@ def member_render_pdf_view(request, *args, **kwargs):
     context = {'member': member}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="Invoice_membership.pdf"'
+    response['Content-Disposition'] = 'filename="Invoice_membership.pdf'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
@@ -45,7 +50,26 @@ def member_render_pdf_view(request, *args, **kwargs):
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
+def donor_render_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    don = get_object_or_404(Donation, pk=pk)
 
+    template_path = 'pdfD.html'
+    context = {'don': don}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="Invoice_donation.pdf'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 def index(request):
 
@@ -60,8 +84,49 @@ def about(request):
     pic = picture.objects.all()
     return render(request, 'about.html', {'pic': pic})
 
+def business(request):
+    return render(request, 'business.html')
+
+def writing(request):
+    return render(request, 'writing.html')
+
+def communication(request):
+    return render(request, 'communication.html')
+
+def mentorship(request):
+
+    form = NewBwsMentorForm()
+
+    if request.method == 'POST':
+        name = request.POST['Name']
+        form = NewBwsMentorForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+			#messages.success(request, 'Account created successfully')
+            return render(request, "mentorship.html", {'name': name})
+        else:
+            print('error form invalid')
+    return render(request, 'mentorship.html', {'form': form})
+
+
+
 def donation(request):
-    return render(request, 'donation.html')
+
+	form = DonationForm()
+
+	if request.method == 'POST':
+
+		form = DonationForm(request.POST)
+
+		if form.is_valid():
+			form.save(commit=True)
+			#messages.success(request, 'Account created successfully')
+			return successMsg1(request)
+
+		else:
+			print('error form invalid')
+
+	return render(request, 'donation.html', {'form': form})
 
 def membership(request):
 
@@ -82,8 +147,6 @@ def membership(request):
 	return render(request, 'membership.html', {'form': form})
 
 
-
-
 def render_pdf_view(request):
     template_path = 'success1.html'
     context = {'myvar': 'this is your template context'}
@@ -102,9 +165,15 @@ def render_pdf_view(request):
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
+
 def successMsg(request):
 
 	return render(request, 'success1.html')
+
+def successMsg1(request):
+
+	return render(request, 'success.html')
+
 
 
 def causes(request):

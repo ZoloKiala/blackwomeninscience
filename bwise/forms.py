@@ -1,6 +1,6 @@
 from django import forms
 
-from  bwise.models import Membership, BWSmembership
+from  bwise.models import Membership, BWSmembership, Donation, BWSmentorship
 
 class NewMemberForm(forms.ModelForm):
 
@@ -153,21 +153,15 @@ class NewBwsMemberForm(forms.ModelForm):
     )
 
     Conducted_TV_interview = forms.ChoiceField(label="Have you conducted Radio/TV interview ?", choices= interested_choices,
-    widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control', 'class': 'narrow-select'})) 
+    widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'})) 
+
+    media_handle = forms.CharField(label="Please share your social media handle (s) ?",
+
+    widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'e.g. Linkdeln, Facebook, Instagram & Twitter'}))
 
     Description = forms.CharField(label="Please provide a brief description of yourself ?",
     max_length = 400,
     widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
-
-
-
-
-
-    
-
-
-
-
 
     
     class Meta():
@@ -184,8 +178,122 @@ class NewBwsMemberForm(forms.ModelForm):
         #     'Town_attend_workshops' : forms.TextInput( attrs = {'class': "form-control"}),
 
 
-        # }
+        # 
+class DonationForm(forms.ModelForm):
 
+    Name = forms.CharField(label="What is your name ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
+    Surname = forms.CharField(label="What is your surname ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-  
+    Amount_donation = (
+        ('R500', 'R500'),
+        ('R1000', 'R1000'),
+        ('R1500', 'R1500'),
+
+    )
+
+    Reason_donation = (
+        ('Fundraising', 'Fundraising'),
+        ('Mentorship program', 'Mentorship program'),
+
+    )
+
+    Cellphone = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    Email = forms.EmailField( 
+        label="Please enter your email address", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    Amount_donation = forms.ChoiceField(label="Select Amount to donate", choices= Amount_donation,
+    widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'}))
+
+    Reason_donation = forms.ChoiceField(label="Select the reason for donation", choices= Reason_donation,
+    widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'}))
+
+    class Meta():
+
+        model = Donation
+        exclude = ['Date']
+
+class NewBwsMentorForm(forms.ModelForm):
+
+    Name = forms.CharField(label="What is your name", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    Surname = forms.CharField(label="What is your surname", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    Cellphone = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    Email = forms.EmailField( 
+        label="Please enter your email address", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    age_choices = [
+        ('18-24', '18-24'),
+        ('25-29', '25-29'), 
+         ('30-34', '30-34'),
+        ('35-39', '35-39'), 
+         ('40-49', '40-49'),
+        ('49 and older', '49 and older'), 
+        
+    ]
+
+    Age = forms.ChoiceField(choices=age_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+
+    province_choices = [
+        ('Eastern Cape', 'Eastern Cape'),
+        ('Free State', 'Free State'),
+        ('Gauteng', 'Gauteng'),
+        ('KwaZulu-Natal', 'KwaZulu-Natal'),
+        ('Limpopo', 'Limpopo'),
+        ('Mpumalanga', 'Mpumalanga'),
+        ('Northern Cape', 'Northern Cape'),
+        ('Western Cape', 'Western Cape')
+    ]
+
+    Province = forms.ChoiceField(choices=province_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+    
+    Country = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    qualification_choices = (
+        ('Post PhD', 'Post PhD'),
+        ('PhD', 'PhD'),
+        ('Masters', 'Masters'),  
+        ('Honours', 'Honours'),
+        ('Bachelors', 'Bachelors'),
+        ('Diploma', 'Diploma'),
+
+    )
+
+    Last_academic_qualification = forms.ChoiceField(label="Last obtained academic qualification", choices= qualification_choices,
+    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+
+    Scientific_discipline = forms.CharField(label="What is your scientific discipline ?", widget=forms.TextInput(attrs={'class':'form-control'}))
+ 
+    Share_experience = forms.CharField(label="Share your own experience of being mentored for relatability",
+    max_length = 400,
+    widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
+
+    Description_idea = forms.CharField(label="Describe your ideal mentee ( stipulate any prerequisites of your ideal mentee)",
+    max_length = 400,
+    widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
+
+    timementor_choices = [
+        ('2-5 hours', '2-5 hours'),
+        ('5-10 hours', '5-10 hours'), 
+        ('10-15 hours', '10-15 hours'),
+        ('more than 15 hours', 'more than 15 hours'),
+    ]
+    Time_to_mentorship = forms.ChoiceField(label="How much time can you dedicate to the mentorship program in a week ?", choices= timementor_choices,
+    widget=forms.Select(attrs={'style': 'padding-left:10px', 'class':'form-control', 'class': 'narrow-select'})) 
+
+    class Meta():
+
+        model = BWSmentorship
+        exclude = ['Date']
+
+        # widgets = {
+        #     'Name' : forms.TextInput(attrs = {'class': "form-control"}),
+        #     'Email' : forms.TextInput(attrs = {'class': "form-control"}),
+        #     'Surname' : forms.TextInput(attrs = {'class': "form-control"}),
+        #     'Gender' : forms.Select(choices= BWSmembership.genre_choices, attrs = {'class': "form-control"}),
+        #     'Description' : forms.Textarea(attrs = {'class': "form-control"}),
+        #     'Town_attend_workshops' : forms.TextInput( attrs = {'class': "form-control"}),
+

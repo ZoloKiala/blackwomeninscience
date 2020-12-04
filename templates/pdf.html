@@ -5,15 +5,6 @@
 
 <style>
 
-.boxed {
-    padding: 10px;
-	border: 1px solid silver;
-	text-align: center;
-    margin-bottom: 30px;
-    color: rgb(15, 15, 15);
-    font-size: 100%;
-}
-
 .member {
     color: rgb(87, 86, 86);
     font-size: 100%;
@@ -28,18 +19,18 @@
     position:absolute;
     right:0px;
     width:25%;
-    height:100px;"
+    height:100px;
+    
+}
+
+.memb {
+    color: rgb(7, 7, 7);
+    padding-bottom: 10px;
     
 }
 
 
-.company {
-
- float:right;
-
-}
-
-table, td, th {
+/* table, td, th {
             border: 1px solid black;
             border-collapse: collapse;
             width: 300px;
@@ -62,96 +53,197 @@ th {
 #t01 th {
   background-color: black;
   color: white;
-}
+} */
 
 .bill{
     color: rgb(33, 8, 122);
+}
+
+table{
+    border: none;
+}
+
+tr, th {
+    padding: 2px;
+    text-align: left;
+}
+
+p {
+    padding-bottom: 0px; 
+}
+
+.center_tab {
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
 
 </style>
 
 </head>
 
-<center class="boxed">
-    <font size="+4"><strong>Invoice # {{member.pk}}</strong></font>  
-</center>
+<p align=right> <font size="+5"><strong>Invoice</strong></font>  </p>
+  
+<div class="memb">
+    <font size="+2"><strong> <u> Member Information </u>  </strong> </font>
+</div>
 
-<font size="+3"><strong> <u> Member Identity </u>  </strong> </font>
  
+
 <div class="member">
-<strong> Name: </strong> {{member.Name}}
+    <strong> Name: </strong> {{member.Name}}
 <br>
-<strong>Email Address: </strong> {{member.Email}}
+<strong>Email: </strong> {{member.Email}}
 <br>
-<strong>Province:</strong> {{member.Province}} 
+<strong>Phone No.:</strong> {{member.Cellphone}} 
 <br>
-<strong>University:</strong> {{member.University}}
-
+<strong>Preferred Town for Workshops:</strong> {{member.Town_attend_workshops}}
+<br>
 </div>
 
 
+
+
+
+<p align=right> <strong>Date :</strong> {{member.Date|date:"SHORT_DATE_FORMAT"}}   
 <br>
+<strong>INVOICE NO. :</strong> bws03{{member.pk}}
+</p>
+
 <br>
+<div class="memb"><font size="+2"><strong> <u> Company Information </u> </strong> </font></div>
 
-
-
-<font size="+3"><strong> <u> Company Identity </u>  </strong> </font>
 <div class='member1'>
-<strong> Company: </strong> Black Women In Science
+    <strong> Company: </strong> Black Women In Science
+    <br>
+    <strong>Email address: </strong> info@bwisglobal.co.za 
+    <br>
+    <strong>Contact person:</strong> Ethel Phiri 
+    <br>
+    <strong>Cellphone:</strong> 0647504360
+    <br>
+</div>
+<hr>
+
 <br>
-<strong>Email address: </strong> info@bwisglobal.co.za 
+
+
+
+    <div class="center_tab">
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+        <th>QUANTITY</th>
+        <th>DESCRIPTION</th>
+        <th>UNIT PRICE (R)</th>
+        <th>TOTAL (R)</th>
+
+        </thead>
+        <tbody>
+        <tr>
+        <td>1</td>
+        <td>Membership and Admission fee to 2021
+             BWIS Fellowship Program</td>
+        <td>100</td>
+        <td>100</td>
+      
+  
+        </tr>
+        <tr>
+        <td>1</td>
+        <td>Scientific Writing Workshop</td>
+        <td>300</td>
+        <td>300</td>
+   
+        </tr>
+        <tr>
+        <td>1</td>
+        <td>Business and Entrepreneurship Workshop</td>
+        <td>300</td>
+        <td>300</td>
+    
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Science Communication Workshop</td>
+            <td>300</td>
+            <td>300</td>
+  
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;
+                <br>
+                <strong>BANKING DETAILS</strong>   	
+                <br>
+                <strong>ACCOUNT HOLDER- BLACK WOMEN IN SCIENCE</strong> 
+                <br>
+                <strong>FNB BANK</strong>
+                <br>
+                <strong>CHEQUE ACCOUNT- 62764691062</strong>
+                <br>
+
+
+
+            </td>
+            <td>&nbsp;
+                <br>
+                SUBTOTAL
+                <br>
+                TAX
+                <br>
+                <br>
+                <br>
+               
+                <strong>TOTAL DUE</strong>  
+            </td>
+            <td>
+            <br>
+            1000
+            <br>
+            -
+            <br>
+            <br>
+            <br>
+          
+           <strong>1000</strong> 
+           
+
+        
+        </td>
+           </tr>
+        </tr>
+
+   
+        </tbody>
+        </table>
+    <hr>
+</div>  
+<div align=left>
+
+<strong>Payment Terms:</strong>
+
+<div class='member'>
+To confirm your membership, we require full payment
 <br>
-<strong>Contact person:</strong> Ethel Phiri 
+Please use Invoice No. as reference
 <br>
-<strong>Cellphone:</strong> 0647504360
-<br>
+Email us proof of payment
 </div>
 
 
 
-<br>
-<br>
-<br>
 
-<table border="1" style="width:100%" id="t01">
-    <tr>
-        <th style="text-align:left" >DESCRIPTION</th>
-        <th style="text-align:left">QUANTITY</th>
-        <th style="text-align:left">AMOUNT</th>
-        <th style="text-align:left">TOTAL</th>
-    </tr>
-    <tr>
-        <td style="text-align:left">BWIS Membership</td>
-        <td style="text-align:left">1.00</td>
-        <td style="text-align:left">R1000</td>
-        <td style="text-align:left">R1000</td>
-    </tr>
-
-
-</table>
-
+</div>
 
 <br>
-<br>
-<br>
-
-<center class= bill>
- <font size="+3"> <strong> Billing Information </strong></font>   
-
- <div class="member">
+<center>
+    <font font size="+3"> <strong> THANK YOU! </strong>  </font>
+        
     
-   <strong> Account Holder :</strong> Black Women in Science
-    <br>
-    <strong>Account type :</strong> Cheque
-    <br>
-    <strong>Account No. </strong> 62764691062
-    <br>
-    <strong>Branch code :</strong> 250655
-    <br>
-    
-    </div>
+    </center>
 
-</center>
 
 
 
