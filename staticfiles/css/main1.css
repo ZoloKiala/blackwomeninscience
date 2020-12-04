@@ -33,3 +33,160 @@
       padding-top:10px}
     @media (max-width: 991px)
     {.section-gap-top1{padding-top:10px}}
+
+    .img-detail{  
+      width: 700px;
+      height: 300px;
+      object-fit: cover;
+      }  
+
+      .img-detail1{  
+        width: 100px;
+        height: 100px;
+        object-fit: fill;
+        }  
+
+        table, td, th {
+          border: 1px solid black;
+          border-collapse: collapse;
+          width: 300px;
+       }
+
+th, td {
+padding: 5px;
+}
+
+th {
+text-align: left;
+}
+  
+.narrow-select { width: 100%;
+  margin-bottom: 20px;
+  line-height: -20px}
+
+
+#more {display: none;}
+#more1 {display: none;}
+#more2 {display: none;}
+
+.myBtn1 {
+  outline: none;
+  color: red
+}
+
+.myBtn11 {
+  outline: none;
+  color: red
+}
+
+.myBtn12 {
+  outline: none;
+  color: red
+}
+
+.card-title1{
+  color: black;
+}
+
+
+/*====================================================
+                       TEAM
+======================================================*/
+
+.team-member {
+  margin: 0 15px;
+}
+
+.team-member-info {
+  padding: 10px 0 30px 0;
+}
+
+h4.team-member-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-top: 2px;
+}
+a h4:hover {
+  font-size: 18px;
+  color:red;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-top: 2px;
+}
+
+
+
+h4.team-member-designation {
+  color: #34c6d3;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+/*====================================================
+                       SOCIAL
+======================================================*/
+
+.social-list {
+  padding-left: 0;
+}
+
+.social-list li {
+  list-style: none;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  margin-top: 10px;
+}
+
+.social-icon i {
+  font-size: 17px;
+}
+
+.icon-gray i {
+  color: #64707b;
+}
+
+.icon-white i {
+  color: #fff;
+}
+
+.social-icon i:hover {
+  color: #34c6d3;
+}
+
+/* 
+
+Workshops details
+
+ */
+#par {
+  text-align: justify;
+  color:black
+  
+}
+
+ul.Bullet {
+  list-style-type: disc;
+  
+
+}
+
+.move_l{
+  padding-top: 5px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  color:black
+}
+
+.box_l{
+  border: 1px solid rgb(223, 214, 214); 
+  background-color: rgb(241, 245, 247);
+}
+
+
