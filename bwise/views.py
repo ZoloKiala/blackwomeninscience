@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import eventPost, picture, Otherpicture, BWSmembership, Article
+from .models import eventPost, picture, Otherpicture, BWSmembership, Article, Donation
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .forms import NewMemberForm, NewBwsMemberForm, DonationForm, NewBwsMentorForm
+from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm
 from django.conf import settings
-from .models import Membership, Donation
+
 
 #Pdf options
 from django.conf import settings
