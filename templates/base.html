@@ -43,26 +43,21 @@
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container">
 				<a class="navbar-brand" href="index.html">
-					<img src="{% static 'img/logo4.jpg' %}" alt="" class="img-detail1">
+					<img src="{% static 'img/logo4.jpg' %}" alt="" class = 'img-detail1'>
 				</a>
-
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span>
+				</button>
+	
 				<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li><a class="active" href="{% url 'index' %}">Home</a></li>
 						<li><a href="{% url 'about' %}">About</a></li>
 						<li><a href="{% url 'causes' %}">Workshops </a></li>
-						<!-- <li><a href="{% url 'eventpost' %}">Events</a></li> -->
-						<li class="dropdown">
-							<a class="dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
-								Events
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="{% url 'eventpost' %}">Upcoming</a>
-								<a class="dropdown-item" href="{% url 'eventpost' %}">Previous</a>
-							</div>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+						<li><a href="{% url 'eventpost' %}">Events </a></li>
+						<li class="nav-item dropdown">
+							<a class="dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown" >
 								Join us
 							</a>
 							<div class="dropdown-menu">
@@ -71,7 +66,7 @@
 								<a class="dropdown-item" href="{% url 'mentorship' %}">Mentorship</a>
 							</div>
 						</li>
-
+	
 						<li><a href="{% url 'contact' %}">Contact</a></li>
 					</ul>
 				</div>
@@ -130,12 +125,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title">Contact Us</h4>
 							<div class="ml-5">
-								<p class="sm-head">
-									<span class="fa fa-location-arrow"></span>
-									Head Office
-								</p>
-								<p>123, Main Street, Johnnesburg</p>
-
 								<p class="sm-head">
 									<span class="fa fa-phone"></span>
 									Phone Number
