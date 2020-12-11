@@ -20,8 +20,8 @@
 
 	<!--================ Start Popular Causes Area =================-->
 
-	<section class="upcoming_event_area section-gap-top color1">
-
+	<section >
+		<br><br><br>
 		<div class="content-box">
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
@@ -30,63 +30,43 @@
 					</div>
 				</div>
 			</div>
-	
-			<div class="container">
-	
-				<div class="row wow animated fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-					<div class="col-md-12">
-	
-						<div id="team-members" class="owl-carousel owl-theme">
-						
-							<div class="team-member">
-								<img src="{% static 'img/causes/business_r.png' %}" class="img-responsive" alt="team member">
-								<div class="team-member-info text-center">
-								<a href="{% url 'business' %}">	<h4 class="team-member-name">BUSINESS & ENTREPRENEURSHIP</h4> </a>
-									<h4 class="team-member-designation">By Mphumzi Mswane</h4>
-									<ul class="social-list">
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="team-member">
-								<img src="{% static 'img/causes/science_r.png' %}" class="img-responsive" alt="team member">
-								<div class="team-member-info text-center">
-									<a href="{% url 'writing' %}"><h4 class="team-member-name">SCIENTIFIC WRITING</h4></a>
-									<h4 class="team-member-designation">By Dr. Sharon Rees</h4>
-									<ul class="social-list">
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="team-member">
-								<img src="{% static 'img/causes/com.png' %}" class="img-responsive" alt="team member">
-								<div class="team-member-info text-center">
-									<a href="{% url 'communication' %}"><h4 class="team-member-name">SCIENCE COMMUNICATION</h4></a>
-									<h4 class="team-member-designation">By Athandiwe Saba</h4>
-									<ul class="social-list">
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-	
-					</div>
-	
+		<div class="container">
+		<div class="card-deck">
+			<div class="card">
+			  <a href="{% url 'writing' %}"><img class="card-img-top" src="{% static 'img/causes/science_r.png' %}" alt="Card image cap"></a>
+			  <div class="card-body">
+				<div class="team-member-info text-center">
+					<a href="{% url 'writing' %}"><h4 class="team-member-name">SCIENTIFIC WRITING</h4></a>
+					<h4 class="team-member-designation">By Dr. Sharon Rees</h4>
 				</div>
-	
+			  </div>
 			</div>
+			<div class="card">
+			<a href="{% url 'business' %}"><img class="card-img-top" src="{% static 'img/causes/business_r.png' %}" alt="Card image cap"></a>  
+			  <div class="card-body">
+				<div class="team-member-info text-center">
+					<a href="{% url 'business' %}">	<h4 class="team-member-name">BUSINESS & ENTREPRENEURSHIP</h4> </a>
+						<h4 class="team-member-designation">By Mphumzi Mswane</h4>
+					</div>
+			
+			  </div>
+			</div>
+			<div class="card">
+			<a href="{% url 'communication' %}"><img class="card-img-top" src="{% static 'img/causes/com.png' %}" alt="Card image cap"></a>  
+			  <div class="card-body">
+				<div class="team-member-info text-center">
+					<a href="{% url 'communication' %}"><h4 class="team-member-name">SCIENCE COMMUNICATION</h4></a>
+					<h4 class="team-member-designation">By Athandiwe Saba</h4>
+				</div>
+			
+			  </div>
+			</div>
+		  </div>
 		</div>
-		<!-- End Content Box -->
 	
+	<br><br><br>
 	</section>
+	<br><br>
 	<!--================ End Popular Causes Area =================-->
 
 	<!--================ Start callto Area =================-->
@@ -103,7 +83,7 @@
 								</a> -->
 						<p>In that Our I own life unto lights them two appear days rule thing fly main for main cause fowl itself dry
 							from made main cause fowl itself dry.</p>
-						<a href="{% url 'membership' %}" class="primary-btn mt-5">
+						<a href="{% url 'fellowship' %}" class="primary-btn mt-5">
 							Join us
 							<i class="ti-angle-right ml-1"></i>
 						</a>

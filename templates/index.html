@@ -4,9 +4,43 @@
 
 
 {% block content %}
+<style>
+.top-content .carousel-item {
+  height: 100vh;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.top-content .carousel-item-1 {
+  background-image: url("{% static 'img/header-bg1.jpg' %}");
+}
+
+.top-content .carousel-item-2 {
+  background-image: url("{% static 'img/header-bg2.jpg' %}");
+}
+
+.top-content .carousel-item-3 {
+  background-image: url("{% static 'img/header-bg3.jpg' %}");
+}
+
+.top-content .carousel-item-4 {
+  background-image: url("{% static 'img/header-bg4.jpg' %}");
+}
+
+@media (max-width: 575px) {
+ 
+ .top-content .carousel-item {
+	 max-height: 400px;
+ }
+
+}
+
+
+
+</style>
 	<!--================ start banner Area =================-->
-		<section class="home-banner-area relative" id="home" >
+		<!-- <section>
 	
 			<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
@@ -26,11 +60,102 @@
 				</div>
 			  </div>
 
+		</section> -->
+	
+<section>
+<!-- Top content -->
+<div class="top-content">
+    <!-- Carousel -->
+    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+ 
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example" data-slide-to="1"></li>
+            <li data-target="#carousel-example" data-slide-to="2"></li>
+            <li data-target="#carousel-example" data-slide-to="3"></li>
+        </ol>
+ 
+        <div class="carousel-inner">
+            <div class="carousel-item carousel-item-1 active">
+                <div class="carousel-caption">
+              		<h1>
+						Black Women In Science
+					</h1>
+					<h4>In her element</h4>
+					<br>
+					<a href="{% url 'membership' %}" class="primary-btn">
+						Join us
+						<i class="ti-angle-right ml-1"></i>
+					</a>
+					<br><br><br><br><br><br><br>
+			
+                </div>
+            </div>
+            <div class="carousel-item carousel-item-2">
+                <div class="carousel-caption">
+					<h1>
+						Black Women In Science
+					</h1>
+					<h4>In her element</h4>
+					<br>
+					<a href="{% url 'membership' %}" class="primary-btn">
+						Join us
+						<i class="ti-angle-right ml-1"></i>
+					</a>
+					<br><br><br><br><br><br><br>
+				</div>
+			</div>
+            <div class="carousel-item carousel-item-3">
+                <div class="carousel-caption">
+					<h1>
+						Black Women In Science
+					</h1>
+					<h4>In her element</h4>
+					<br>
+					<a href="{% url 'membership' %}" class="primary-btn">
+						Join us
+						<i class="ti-angle-right ml-1"></i>
+					</a>
+					<br><br><br><br><br><br><br>
+                </div>
+            </div>
+            <div class="carousel-item carousel-item-4">
+                <div class="carousel-caption">
+					<div class="">
+						<h1>
+							Black Women In Science
+						</h1>
+						<h4>In her element</h4>
+						<br>
+						<a href="{% url 'membership' %}" class="primary-btn">
+							Join us
+							<i class="ti-angle-right ml-1"></i>
+						</a>
+						<br><br><br><br><br><br><br>
+					</div>
+                </div>
+            </div>
+        </div>
+ 
+        <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- End carousel -->
+</div>
 
 
-		</section>
+</section>
+
+
+
+
 		
-
 	<!--================ Start About Area =================-->
 	<section class="about_area lite_bg">
 		<div class="container">
@@ -101,10 +226,6 @@
 							<button class='myBtn1' onclick="myFunction()" style="border:none" id="myBtn">Read more</button>
 						</p>
 							<br>
-
-						
-						
-
 						<a href="{% url 'donation' %}" class="primary-btn">Donate</a>
 					</div>
 				</div>
@@ -120,7 +241,7 @@
 							 from pursuing their scientific passions. Celebrate these exceptional women with us!</span>
 							 <button class='myBtn11' onclick="myFunction1()" style="border:none" id="myBtn1">Read more</button></p>
 							<br>
-						<a href="#" class="primary-btn">Learn more</a>
+						<a href="{% url 'stories' %}" class="primary-btn">Learn more</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
@@ -145,6 +266,53 @@
 
 	<!--================ Start Team Area =================-->
 <!-- Team -->
+
+<section upcoming_event_area section-gap-top>
+	<div class="content-box">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="section-title">
+					<h2><span>Fellowship</span> Workshops</h2>
+				</div>
+			</div>
+		</div>
+	<div class="container">
+	<div class="card-deck">
+		<div class="card">
+		  <a href="{% url 'writing' %}"><img class="card-img-top" src="{% static 'img/causes/science_r.png' %}" alt="Card image cap"></a>
+		  <div class="card-body">
+			<div class="team-member-info text-center">
+				<a href="{% url 'writing' %}"><h4 class="team-member-name">SCIENTIFIC WRITING</h4></a>
+				<h4 class="team-member-designation">By Dr. Sharon Rees</h4>
+			</div>
+		  </div>
+		</div>
+		<div class="card">
+		<a href="{% url 'business' %}"><img class="card-img-top" src="{% static 'img/causes/business_r.png' %}" alt="Card image cap"></a>  
+		  <div class="card-body">
+			<div class="team-member-info text-center">
+				<a href="{% url 'business' %}">	<h4 class="team-member-name">BUSINESS & ENTREPRENEURSHIP</h4> </a>
+					<h4 class="team-member-designation">By Mphumzi Mswane</h4>
+				</div>
+		
+		  </div>
+		</div>
+		<div class="card">
+		<a href="{% url 'communication' %}"><img class="card-img-top" src="{% static 'img/causes/com.png' %}" alt="Card image cap"></a>  
+		  <div class="card-body">
+			<div class="team-member-info text-center">
+				<a href="{% url 'communication' %}"><h4 class="team-member-name">SCIENCE COMMUNICATION</h4></a>
+				<h4 class="team-member-designation">By Athandiwe Saba</h4>
+			</div>
+		
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+<br><br>
+</section>
+<!-- 
 <section id="team">
 
 	<div class="content-box">
@@ -158,47 +326,32 @@
 
 		<div class="container">
 
-			<div class="row wow animated fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+			<div class="">
 				<div class="col-md-12">
 
-					<div id="team-members" class="owl-carousel owl-theme">
+					<div id="team-members" class="">
 					
 						<div class="team-member">
-							<img src="{% static 'img/causes/business_r.png' %}" class="img-responsive" alt="team member">
+							<img src="{% static 'img/causes/business_r.png' %}" class="" alt="">
 							<div class="team-member-info text-center">
 							<a href="{% url 'business' %}">	<h4 class="team-member-name">BUSINESS & ENTREPRENEURSHIP</h4> </a>
 								<h4 class="team-member-designation">By Mphumzi Mswane</h4>
-								<ul class="social-list">
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
 							</div>
 						</div>
 
 						<div class="team-member">
-							<img src="{% static 'img/causes/science_r.png' %}" class="img-responsive" alt="team member">
+							<img src="{% static 'img/causes/science_r.png' %}" class="" alt="">
 							<div class="team-member-info text-center">
 								<a href="{% url 'writing' %}"><h4 class="team-member-name">SCIENTIFIC WRITING</h4></a>
 								<h4 class="team-member-designation">By Dr. Sharon Rees</h4>
-								<ul class="social-list">
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
 							</div>
 						</div>
 
 						<div class="team-member">
-							<img src="{% static 'img/causes/com.png' %}" class="img-responsive" alt="team member">
+							<img src="{% static 'img/causes/com.png' %}" class="" alt="">
 							<div class="team-member-info text-center">
 								<a href="{% url 'communication' %}"><h4 class="team-member-name">SCIENCE COMMUNICATION</h4></a>
 								<h4 class="team-member-designation">By Athandiwe Saba</h4>
-								<ul class="social-list">
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
 							</div>
 						</div>
 					</div>
@@ -208,11 +361,11 @@
 			</div>
 
 		</div>
-	</div>
+	
 	<!-- End Content Box -->
 
-</section>
-
+</section> -->
+<br><br>
 
 		<!--================ Start callto Area =================-->
 		<section class="callto-area section-gap relative">
@@ -222,13 +375,13 @@
 					<div class="col-lg-8">
 						<p class="top_text">Need to become a member?</p>
 						<div class="call-wrap mx-auto">
-							<h1>Become a BWS member in Your Area </h1>
+							<h1>Become a BWIS member in Your Area </h1>
 							<!-- <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=_C5vCGB8Xx0">
 										<span></span>
 									</a> -->
 							<p>In that Our I own life unto lights them two appear days rule thing fly main for main cause fowl itself dry
 								from made main cause fowl itself dry.</p>
-							<a href="{% url 'membership' %}"  class="primary-btn mt-5">
+							<a href="{% url 'fellowship' %}"  class="primary-btn mt-5">
 								Join us
 								<i class="ti-angle-right ml-1"></i>
 							</a>
@@ -307,38 +460,38 @@
 
 
 
+	
 	<!--================ Start Home Blog Area =================-->
 	<section class="blog-area section-gap-top">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-12">
 					<div class="home-blog-left">
-						<h2>Latest From
-							Articles </h2>
+						<h2>Latest Successfull story </h2>
 						<p>
-							Open fifth midst divided great fly gathering living deep no abundantly. Evening appear saying that forth god
-							wito
 							Given sixth days of very Third spirit waters seas. Calleded can't his third. Evening upon. All stars. Seasons a
 							the a dry for third days
 						</p>
-						<a href="#" class="primary-btn2">Show more</a>
+						<a href="{% url 'stories' %}"class="primary-btn2">Show more</a>
 					</div>
 				</div>
 
-				{% for art in article %}
-				<div class="col-lg-4 col-md-6 single-blog">
-					<div class="thumb ">
-						<img class="img-detail" src="{{ art.image.url }}" alt="" class="img-detail">
-					</div>
+				
+
+				<div class="col-lg-4 col-md-6 img-detail2">
 					<div class="">
-					
-						<a href="blog-single.html">
-							<h4> {{ art.title }} </h4>
-						</a>
+						
+							{% for vid in video.all %}
+							<video width="500" height="300" controls 
+						src="{{ vid.video.url }}" type = "video/mp4" class=""></video>
+						
+						{% endfor %}
 
-					</div>
+					
+				
+				    </div>
 				</div>
-               {% endfor %}
+               
 
 			</div>
 		</div>
@@ -351,7 +504,12 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
 					<div class="section-title">
-						<h2><span>Follow</span> Us</h2>
+						<h2><span>Follow</span> Us</h2><br>
+						<ul class="social-list">
+							<li><a href="https://web.facebook.com/BlackWomenInScience" target="_blank" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/bwis_element/" target="_blank" class="social-icon icon-gray"><i class="fa fa-instagram"></i></a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -360,7 +518,7 @@
 
 			{% for pic1 in pic %}
 
-			<a href="{{ pic1.about.url }}" class="single-instagram d-block img-pop-up">
+			<a href="" class="single-instagram d-block img-pop-up">
 				<div class="instagram-img">
 					<img class="img-detail"  src="{{ pic1.about.url }}" alt="">
 					<div class="instagram-text">

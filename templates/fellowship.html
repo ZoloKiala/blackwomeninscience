@@ -13,23 +13,30 @@
 	<div class="container">
 		<div class="row justify-content-lg-end align-items-center banner-content">
 			<div class="col-lg-5">
-				<h1 class="text-white">Fellowship</h1>
-				<!-- <p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are -->
-					<!-- great move</p> -->
+				<h1 class="text-white">Membership</h1>
+	
 			</div>
 		</div>
 	</div>
 </section>
 <!--================ End banner Area =================-->
 
+  {% if name %}
+  <br/><br/><br/>
+  <center>
+	<h2>Thanks {{ name }}</h2>
+	<p> We received your form and will respond shortly</p>
+  </center>
+<br/><br/><br/>
 
+{% else %}
 <section class="">
 	<br><br><br>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				<div class="section-title">
-					<h2>Become a <span>fellow</span></h2>
+					<h2>Become a <span>member</span></h2>
 				</div>
 			</div>
 		</div>
@@ -74,32 +81,32 @@
 					<div id="right-wrapper">
 
 
-						<h3> BWIS fellowship Criteria : </h3>
+						<h3> BWIS Membership Criteria : </h3>
 						<br>
 						
 						<ul>
+							<li>Members can participate using digital platform ( with all other points already on site)</li>
 							<li>Must be a Female</li>
 							<li>Must posses a higher education qualification in a scientific discipline</li>
 							<li>Open to 3rd year and post-graduate students in a tertiary institution</li>
 							<li>Open to professionals with science-based occupations</li>
-							<li>Must attend at least 80% BWIS training courses/events</li>
 							<li>Must be prepared to volunteer within the organisation if required</li>
 							<li>Must be prepared to participate in mentorship initiatives</li>
 						  </ul>
 <br><br><br><br>
 
-<h3> BWIS Fellow Benefits : </h3>
+<h3> BWIS Member Benefits : </h3>
 <br>
 
 <ul>
-	<li>You will be the first to know about all events, training courses and opportunities</li>
-	<li>Admission into BWIS training courses</li>
-	<li>Exclusive access to secret “BWIS Members Only” Facebook Network for you to connect and communicate with each other</li>
-	<li>You get the opportunity to join the BWIS Fellowship Programme</li>
+	<li>You will be the first to know all about events and opportunities</li>
+	<li>Opportunity to participate in mentorship program and outreach program in your area</li>
+	<li>Opportunity to represent BWIS in your area e.g local Radio interview or Magazine feature</li>
+	<li>Exclusive access to secret “BWIS member only” Facebook network for you to connect and communicate with each other</li>
+	<li>Only members in Gauteng and KZN - Durban ( or surrounding areas) can join the Fellowship program</li>
   </ul>
 
-
-
+  
 
 					</div>
 				</div>
@@ -114,6 +121,6 @@
 
 
 
+{% endif %}
 
-
-{% endblock content %}
+{% endblock %}

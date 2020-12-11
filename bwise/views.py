@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import eventPost, picture, Otherpicture, BWSmembership, Article, Donation
+from .models import eventPost, picture, Otherpicture, BWSmembership, Article, Donation, Videos
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm
+from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm
 from django.conf import settings
 
 
@@ -77,8 +77,9 @@ def index(request):
     pic = picture.objects.all()
     opic = Otherpicture.objects.all()
     article = Article.objects.all()
+    video = Videos.objects.filter(id=1) 
 
-    return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic, 'article':article })
+    return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic, 'article':article, 'video':video })
 
 def about(request):
     pic = picture.objects.all()
@@ -92,6 +93,10 @@ def writing(request):
 
 def communication(request):
     return render(request, 'communication.html')
+
+def stories(request):
+    video = Videos.objects.all()
+    return render(request, 'stories.html', {'video': video} )
 
 def mentorship(request):
 
@@ -108,6 +113,20 @@ def mentorship(request):
             print('error form invalid')
     return render(request, 'mentorship.html', {'form': form})
 
+def fellowship(request):
+
+    form = NewBwsFellowForm()
+
+    if request.method == 'POST':
+        name = request.POST['Name']
+        form = NewBwsFellowForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+			#messages.success(request, 'Account created successfully')
+            return render(request, "fellowship.html", {'name': name})
+        else:
+            print('error form invalid')
+    return render(request, 'fellowship.html', {'form': form})
 
 
 def donation(request):

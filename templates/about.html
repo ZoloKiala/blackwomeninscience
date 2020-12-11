@@ -4,6 +4,31 @@
 {% block title %} About {% endblock %}
 
 {% block content %}
+	<!--================ start banner Area =================-->
+	<!-- <section class="home-banner-area relative" id="home" >
+		<div class="overlay overlay-bg"></div>
+		
+		<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+			
+				  <img src="{% static 'img/header-bg1.jpg' %}" class="d-block w-100" alt="...">
+			  </div>
+			  <div class="carousel-item">
+				<img src="{% static 'img/header-bg2.jpg' %}" class="d-block w-100" alt="...">
+			  </div>
+			  <div class="carousel-item">
+				<img src="{% static 'img/header-bg3.jpg' %}" class="d-block w-100" alt="...">
+			  </div>
+			  <div class="carousel-item">
+				<img src="{% static 'img/header-bg4.jpg' %}" class="d-block w-100" alt="...">
+			  </div>
+			</div>
+		  </div>
+
+	</section> -->
+
+<!--================ Start About Area =================-->
 
 	<!--================ Start top-section Area =================-->
 	<section class="banner-area relative">
@@ -70,7 +95,8 @@
 
 
 	<!--================ Start Features Area =================-->
-	<section class="features-area section-gap-top">
+	<section class="">
+		<br><br><br>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
@@ -110,7 +136,7 @@
 							 from pursuing their scientific passions. Celebrate these exceptional women with us!</span>
 							 <button class='myBtn11' onclick="myFunction1()" style="border:none" id="myBtn1">Read more</button></p>
 							<br>
-						<a href="#" class="primary-btn">Learn more</a>
+						<a href="{% url 'stories' %}" class="primary-btn">Learn more</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
@@ -130,18 +156,27 @@
 				</div>
 			</div>
 		</div>
+		
 	</section>
 	<!--================ End Features Area =================-->
 
 	
 	<!--================ Start Instagram Area =================-->
-	<section class="instagram-area section-gap-top1">
+	<section class="">
+		<br><br>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
+
 					<div class="section-title">
-						<h2><span>Follow</span> Us</h2>
+						<h2><span>Follow</span> Us</h2><br>
+						<ul class="social-list">
+							<li><a href="https://web.facebook.com/BlackWomenInScience" target="_blank" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/bwis_element/" target="_blank" class="social-icon icon-gray"><i class="fa fa-instagram"></i></a></li>
+						</ul>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -162,6 +197,7 @@
 
 
 		</div>
+		<br><br><br>
 	</section>
 	
 	<!--================ End Instagram Area =================-->

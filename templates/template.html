@@ -371,7 +371,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								<li><a href="{% url 'about' %}">About</a></li>
 								<li><a href="{% url 'causes' %}">Workshops </a></li>
 								<li><a href="{% url 'eventpost' %}">Events</a></li>
-								<li><a href="{% url 'membership' %}">Membership</a></li>
+								<!-- <li><a href="{% url 'membership' %}">Membership</a></li> -->
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="{% url 'eventpost' %}" id="navbardrop" data-toggle="dropdown">
+										Events
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'eventpost' %}">Upcoming</a>
+										<a class="dropdown-item" href="{% url 'eventpost' %}">Previous</a>
+									</div>
+								</li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="{% url 'membership' %}" id="navbardrop" data-toggle="dropdown">
+										Join us
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'membership' %}">Fellowship</a>
+										<a class="dropdown-item" href="{% url 'mentorship' %}">Membership</a>
+										<a class="dropdown-item" href="{% url 'membership' %}">Mentorship</a>
+									</div>
+								</li>
 								<li><a href="{% url 'contact' %}">Contact</a></li>
 							</ul>
 						</div>
