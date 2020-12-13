@@ -226,7 +226,7 @@ def contact(request):
             subject, #subject
             message, #message
             email, # from email
-            ['serkial1@yahoo.fr'], # To Email
+            ['info@bwisglobal.co.za'], # To Email
         )
 
         return render(request, "contact.html", {'name': name})

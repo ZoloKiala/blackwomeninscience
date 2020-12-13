@@ -1,32 +1,43 @@
 
-        // Clicking dropdown button will toggle display 
-        function btnToggle() { 
-          document.getElementById("Dropdown").classList.toggle("show"); 
-      } 
-        
-      // Prevents menu from closing when clicked inside 
-      document.getElementById("Dropdown").addEventListener('click', function (event) { 
-          alert("click outside"); 
-          event.stopPropagation(); 
-      }); 
-        
-      // Closes the menu in the event of outside click 
-      window.onclick = function(event) { 
-          if (!event.target.matches('.dropbutton')) { 
-            
-              var dropdowns =  
-              document.getElementsByClassName("dropdownmenu-content"); 
-                
-              var i; 
-              for (i = 0; i < dropdowns.length; i++) { 
-                  var openDropdown = dropdowns[i]; 
-                  if (openDropdown.classList.contains('show')) { 
-                      openDropdown.classList.remove('show'); 
-                  } 
-              } 
-          } 
-      } 
-     
+  //   $(function() {
+  //     // this will get the full URL at the address bar
+  //     var url = window.location.href;
+
+  //     // passes on every "a" tag
+  //     $(".topmenu a").each(function() {
+  //         // checks if its the same on the address bar
+  //         if (url == (this.href)) {
+  //             $(this).closest("li").addClass("active");
+  //             //for making parent of submenu active
+  //            $(this).closest("li").parent().parent().addClass("active");
+  //         }
+  //     });
+  // });
+
+/*====================================================
+                        NAVIGATION
+====================================================*/
+// Show/Hide transparent black navigation
+$(function () {
+
+  $(window).scroll(function () {
+
+      if ($(this).scrollTop() < 5000) {
+          // hide nav
+          $("nav").removeClass("default-header");
+          $("#back-to-top").fadeOut();
+
+      } else {
+          // show nav
+          $("nav").addClass("default-header");
+          $("#back-to-top").fadeIn();
+      }
+  });
+});
+
+
+
+
 
 function myFunction() {
   var dots = document.getElementById("dots");
@@ -80,33 +91,31 @@ function myFunction1() {
   /*====================================================
                         TEAM
 ====================================================*/
-// $(function () {
+$(function () {
 
-//     $("#team-members").owlCarousel({
-//         items: 3,
-//         autoplay: true,
-//         smartSpeed: 700,
-//         loop: true,
-//         autoplayHoverPause: true,
-// 		responsive: {
-// 		  0: {
-// 			items: 1
-// 		  },
-// 		  480: {
-// 			items: 2
-// 		  },
-// 		  768: {
-// 			items: 3
-// 		  }
-// 		}
-//     });
-// });
+    $("#team-members").owlCarousel({
+        items: 3,
+        autoplay: true,
+        smartSpeed: 700,
+        loop: true,
+        autoplayHoverPause: true,
+		responsive: {
+		  0: {
+			items: 1
+		  },
+		  480: {
+			items: 2
+		  },
+		  768: {
+			items: 3
+		  }
+		}
+    });
+});
 
 // hovering
 // $('h4.team-member-name').on('mouseenter', function(){
 //   $(this).toggleClass('h4.team-member-name1')
 // })
-
-
 
   

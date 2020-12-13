@@ -40,9 +40,15 @@
       object-fit: cover;
       }  
 
+      .img-detail2{  
+    
+        padding-left: 130px;
+       
+        }  
+
       .img-detail1{  
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         object-fit: fill;
         }  
 
@@ -144,7 +150,7 @@ h4.team-member-designation {
 }
 
 .social-icon i {
-  font-size: 17px;
+  font-size: 30px;
 }
 
 .icon-gray i {
@@ -170,6 +176,16 @@ Workshops details
   
 }
 
+.underl {
+  text-decoration: underline;;
+ 
+}
+
+
+.bold_text {
+    font-weight: bold;
+}
+
 ul.Bullet {
   list-style-type: disc;
   
@@ -189,4 +205,35 @@ ul.Bullet {
   background-color: rgb(241, 245, 247);
 }
 
-/* carousel */
+/* Navigation */
+/* .default-header .bwis-top-nav ul.navbar-nav > li.active > a {
+color: red; */
+/* } */
+
+/* .ul.navbar-nav > li.active{
+  color:            #F8F8F8;
+  background-color: #4f81bd;
+} */
+
+/* .topmenu ul li.active a.test, .topmenu ul li a.test:hover {
+  text-decoration:none;
+  color:rgb(230, 9, 9);
+} */
+
+/* Content within carousel */
+
+html, body {
+  height: 100%;
+  
+}
+
+.carousel-caption {
+  display: table-cell;
+  vertical-align: middle;
+  /* text-align: center; */
+}
+
+
+
+
+
