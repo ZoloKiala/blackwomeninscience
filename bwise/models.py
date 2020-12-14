@@ -15,7 +15,7 @@ class Article(models.Model):
 class Videos(models.Model):
 
     name = models.CharField(max_length = 200, unique = True)
-    description = models.TextField(default=True)
+    # description = models.TextField(default=True)
     video = models.FileField(upload_to = 'videos/')
 
     def __str__(self):
