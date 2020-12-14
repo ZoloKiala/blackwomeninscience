@@ -20,9 +20,17 @@
 	</div>
 </section>
 <!--================ End banner Area =================-->
+{% if name %}
+<br/><br/><br/>
+<center>
+  <h2>Thanks {{ name }}</h2>
+  <p> We received your form and will respond shortly</p>
+</center>
+<br/><br/><br/>
 
+{% else %}
 
-<section class="">
+<section class=""></section>
 	<br><br><br>
 <div class="container">
 	<div class="row justify-content-center">
@@ -35,11 +43,7 @@
 
 	<div id="container">
 		<div class="row">
-			
-
-			
-
-			
+				
 			<div class="col-lg-6 order-lg-2">
 				<div id="right-wrapper">
 					<h3> BWIS Membership Criteria : </h3>
@@ -101,18 +105,11 @@
 				</div>
 			</div>
 		
-		
-
-
-		
-			
-
-
-
 
 		</div>
 	</div>
 	<br><br><br>
+
 	</section>
 
 
@@ -123,6 +120,6 @@
 
 
 
-
+	{% endif %}
 
 	{% endblock content %}
