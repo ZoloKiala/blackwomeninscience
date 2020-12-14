@@ -5,12 +5,12 @@ import datetime
 
 # Create your models here.
 
-# class Article(models.Model):
+class Article(models.Model):
 
-#     title = models.CharField(max_length = 200, unique = True)
-#     description = models.TextField()
-#     image = models.ImageField(upload_to = 'pics')
-#     date = models.DateTimeField(auto_now_add = timezone.now)
+    title = models.CharField(max_length = 200, unique = True)
+    description = models.TextField()
+    image = models.ImageField(upload_to = 'pics')
+    date = models.DateTimeField(auto_now_add = timezone.now)
 
 class Videos(models.Model):
 

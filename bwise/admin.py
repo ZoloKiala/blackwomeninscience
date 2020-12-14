@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import eventPost, picture, Otherpicture, BWSmembership,  Donation, BWSmentorship, Videos
+from .models import eventPost, picture, Otherpicture, BWSmembership, Article, Donation, BWSmentorship, Videos
 
 # Register your models here.
 
