@@ -234,6 +234,12 @@ html, body {
 }
 
 
+/* Form */
+.errorlist
+    {
+        color: red;
+    }
 
+   
 
 

@@ -22,19 +22,25 @@ from xhtml2pdf import pisa
 class MemberListView(ListView):
     model = BWSmembership
     template_name = 'invoice.html'
-    ordering = ['-Date']
+    # ordering = ['-Date']
+
+    def get_queryset(self):
+        return BWSmembership.objects.latest('id')
 
 class DonorListView(ListView):
     model = Donation
     template_name = 'invoice_D.html'
-    ordering = ['-Date']
+ 
+    def get_queryset(self):
+        return Donation.objects.latest('id')
+
 
 def member_render_pdf_view(request, *args, **kwargs):
     pk = kwargs.get('pk')
-    member = get_object_or_404(BWSmembership, pk=pk)
+    object_list = get_object_or_404(BWSmembership, pk=pk)
 
     template_path = 'pdf.html'
-    context = {'member': member}
+    context = {'object_list': object_list}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="Invoice_membership.pdf'
@@ -240,18 +246,3 @@ def successView(request):
     return render(request, 'success.html')
 
 
-
-
-
-
-# class EventListView(ListView):
-#     model = eventPost
-#     template_name = 'eventpost.html'
-#     context_object_name = 'event1'
-#     ordering = ['date']
-
-# class EventDetailView(DetailView):
-#     context_object_name = 'event2'
-#     model = eventPost
-#     template_name = 'eventpost_detail.html'
-    

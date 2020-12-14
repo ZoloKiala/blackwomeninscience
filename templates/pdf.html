@@ -94,13 +94,13 @@ display: flex;
  
 
 <div class="member">
-    <strong> Name: </strong> {{member.Name}}
+    <strong> Name: </strong> {{object_list.Name}}
 <br>
-<strong>Email: </strong> {{member.Email}}
+<strong>Email: </strong> {{object_list.Email}}
 <br>
-<strong>Phone No.:</strong> {{member.Cellphone}} 
+<strong>Phone No.:</strong> {{object_list.Cellphone}} 
 <br>
-<strong>Preferred Town for Workshops:</strong> {{member.Town_attend_workshops}}
+<strong>Preferred Town for Workshops:</strong> {{object_list.Town_attend_workshops}}
 <br>
 </div>
 
@@ -108,9 +108,9 @@ display: flex;
 
 
 
-<p align=right> <strong>Date :</strong> {{member.Date|date:"SHORT_DATE_FORMAT"}}   
+<p align=right> <strong>Date :</strong> {{object_list.Date|date:"SHORT_DATE_FORMAT"}}   
 <br>
-<strong>INVOICE NO. :</strong> bws03{{member.pk}}
+<strong>INVOICE NO. :</strong> bwis03{{object_list.pk}}
 </p>
 
 <br>

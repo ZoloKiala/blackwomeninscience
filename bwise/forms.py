@@ -89,7 +89,7 @@ class NewBwsMemberForm(forms.ModelForm):
 
     Scientific_discipline = forms.CharField(label="What is your scientific discipline ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Subject_major = forms.CharField(label="What is your subject major ?", )
+    Subject_major = forms.CharField(label="What is your subject major ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     occupation_choices = [
      
@@ -100,7 +100,7 @@ class NewBwsMemberForm(forms.ModelForm):
     ]
 
     Occupation = forms.ChoiceField(label="What is your occupation ?", choices= occupation_choices,
-    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+    widget=forms.Select(attrs={'class':'form-control narrow-select'}))
 
     hear_choices = (
         ('social media', 'Social media'),
@@ -155,6 +155,7 @@ class NewBwsMemberForm(forms.ModelForm):
 
         model = BWSmembership
         exclude = ['Date']
+        error_css_class = "error"
 
         # widgets = {
         #     'Name' : forms.TextInput(attrs = {'class': "form-control"}),
@@ -166,9 +167,9 @@ class NewBwsMemberForm(forms.ModelForm):
 
 class NewBwsFellowForm(forms.ModelForm):
 
-    Name = forms.CharField(label="What is your name", widget=forms.TextInput(attrs={'class':'form-control'}))
+    Name = forms.CharField(label="What is your name ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Surname = forms.CharField(label="What is your surname", widget=forms.TextInput(attrs={'class':'form-control'}))
+    Surname = forms.CharField(label="What is your surname ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     genre_choices = [
         ('male', 'Male'),
@@ -274,11 +275,11 @@ class NewBwsFellowForm(forms.ModelForm):
     Conducted_TV_interview = forms.ChoiceField(label="Have you conducted Radio/TV interview ?", choices= interested_choices,
     widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'})) 
 
-    media_handle = forms.CharField(label="Please share your social media handle (s) ?",
+    media_handle = forms.CharField(label="Please share your social media handle (s)",
 
     widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'e.g. Linkdeln, Facebook, Instagram & Twitter'}))
 
-    Description = forms.CharField(label="Please provide a brief description of yourself ?",
+    Description = forms.CharField(label="Please provide a brief description of yourselfS",
     max_length = 400,
     widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
 
@@ -287,6 +288,7 @@ class NewBwsFellowForm(forms.ModelForm):
 
         model = BWSfellowship
         exclude = ['Date']
+        error_css_class = "error"
 
 
 
@@ -295,13 +297,6 @@ class DonationForm(forms.ModelForm):
     Name = forms.CharField(label="What is your name ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     Surname = forms.CharField(label="What is your surname ?", widget=forms.TextInput(attrs={'class':'form-control'}))
-
-    Amount_donation = (
-        ('R500', 'R500'),
-        ('R1000', 'R1000'),
-        ('R1500', 'R1500'),
-
-    )
 
     Reason_donation = (
         ('Fundraising', 'Fundraising'),
@@ -314,8 +309,8 @@ class DonationForm(forms.ModelForm):
     Email = forms.EmailField( 
         label="Please enter your email address", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Amount_donation = forms.ChoiceField(label="Select Amount to donate", choices= Amount_donation,
-    widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'}))
+    Amount_donation = forms.IntegerField(label="Enter Amount to donate (Rand)",
+    widget=forms.TextInput(attrs={'class':'form-control narrow-select'}))
 
     Reason_donation = forms.ChoiceField(label="Select the reason for donation", choices= Reason_donation,
     widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'}))
@@ -324,12 +319,13 @@ class DonationForm(forms.ModelForm):
 
         model = Donation
         exclude = ['Date']
+        error_css_class = "error"
 
 class NewBwsMentorForm(forms.ModelForm):
 
-    Name = forms.CharField(label="What is your name", widget=forms.TextInput(attrs={'class':'form-control'}))
+    Name = forms.CharField(label="What is your name ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Surname = forms.CharField(label="What is your surname", widget=forms.TextInput(attrs={'class':'form-control'}))
+    Surname = forms.CharField(label="What is your surname ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     Cellphone = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
@@ -399,6 +395,7 @@ class NewBwsMentorForm(forms.ModelForm):
 
         model = BWSmentorship
         exclude = ['Date']
+        error_css_class = "error"
 
         # widgets = {
         #     'Name' : forms.TextInput(attrs = {'class': "form-control"}),

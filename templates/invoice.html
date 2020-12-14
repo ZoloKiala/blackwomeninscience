@@ -9,9 +9,8 @@
 	<div class="container">
 		<div class="row justify-content-lg-end align-items-center banner-content">
 			<div class="col-lg-5">
-				<h1 class="text-white">List of Members</h1>
-				<p>A likeness were made fourth land bring lesser beast face image they bring so earth moved they are
-					great move</p>
+				<h1 class="text-white">Print Invoice</h1>
+				
 			</div>
 		</div>
 	</div>
@@ -30,17 +29,16 @@
 <table border="1" style="width:100%" id="t01">
    
     <tr>
-        <th style="text-align:left" >List of Fellows</th>
+        <th style="text-align:left" >Name</th>
         <th style="text-align:left">Downloads</th>
 
     </tr>
-    {% for member in object_list %} 
+    
     <tr>
-        <td style="text-align:left">{{member}}</td>
-        <td style="text-align:left"><a href="{% url 'member-pdf-view' member.pk %}"><button class="btn btn-primary"> Print Invoice </button></a></td>
+        <td style="text-align:left">{{ object_list }}</td>
+        <td style="text-align:left"><a href="{% url 'member-pdf-view' object_list.pk %}"><button class="btn btn-primary"> Print Invoice </button></a></td>
       
     </tr>
-    {% endfor %}
     
 </table>
 

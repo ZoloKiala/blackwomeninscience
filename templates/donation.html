@@ -34,7 +34,7 @@
 	</div>
 
 	<div id="container">
-		<div class="row">
+		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				<div id="left-wrapper">
 					<img id="profile-pic" src="{% static 'img/causes/donate.jpg' %}">
@@ -50,31 +50,21 @@
 
 					<!-- Add form here -->
 					<div class="form-group">
-					<form method="post">
-						{{ form.as_p }}
-						{% csrf_token %}
-						
+						<form method="post">
+							{{ form.as_p }}
+							{% csrf_token %}
+							
 
-						<input class="myButton" style="background-color:#a09e9e" type="submit" value="Submit"
-							name="">
+							<input class="myButton" style="background-color:#a09e9e" type="submit" value="Submit"
+								name="">
 
-					</form>
-				</div>
+						</form>
+					</div>
 
-				</div>
-			</div>
-
-			<div class="col-lg-6">
-				<div id="right-wrapper">
-
-					<img class="coffee-cup" src="{% static 'img/causes/Coffee5a.png' %}">
-					<img class="coffee-cup2" src="{% static 'img/causes/Coffee10a.png' %}">
-					<img class="coffee-cup3" src="{% static 'img/causes/Coffee25a.png' %}">
-					<h3>If We have provided you with value please consider supporting our efforts ;)</h3>
-
-					
 				</div>
 			</div>
+
+
 		</div>
 	</div>
 	<br><br><br>

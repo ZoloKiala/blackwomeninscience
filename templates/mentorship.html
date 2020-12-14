@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'template.html' %}
 
+{% block title %} Mentorship {% endblock %}
 {% load static %}
-
-{% block title %} Membership {% endblock %}
 {% block content %}
+
 
 
 
@@ -14,74 +14,40 @@
 		<div class="row justify-content-lg-end align-items-center banner-content">
 			<div class="col-lg-5">
 				<h1 class="text-white">Mentorship</h1>
-	
+		
 			</div>
 		</div>
 	</div>
 </section>
 <!--================ End banner Area =================-->
 
-  {% if name %}
-  <br/><br/><br/>
-  <center>
-	<h2>Thanks {{ name }}</h2>
-	<p> We received your form and will respond shortly</p>
-  </center>
+{% if name %}
+<br/><br/><br/>
+<center>
+  <h2>Thanks {{ name }}</h2>
+  <p> We received your form and will respond shortly</p>
+</center>
 <br/><br/><br/>
 
 {% else %}
 <section class="">
-	<br/><br/><br/>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-6">
-				<div class="section-title">
-					<h2>Become a <span>mentor</span></h2>
-				</div>
+	<br><br><br>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-6">
+			<div class="section-title">
+				<h2>Become a <span>mentor</span></h2>
 			</div>
 		</div>
+	</div>
 
-		<div id="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div id="left-wrapper">
-						<img id="profile-pic" src="{% static 'img/causes/member.jpg' %}">
-						<div id="left-wrapper-header">
-							<br>
-							<br>
-							<h3><span>Fill the form to become a mentor </span></h3>
-
-						</div>
-
-						<div style="clear:left"></div>
-						<hr>
-
-						<!-- Add form here -->
-						<div class="form-group">
-						<form method="POST">
-
-							{{ form.as_p }}
-							
-							{% csrf_token %}
-
-							
-							<div style="clear:left"></div>
-							<hr>
-
-							<input class="myButton" style="background-color:#a09e9e" type="submit"
-								value="Apply" name="">
-
-						</form>
-</div>
-
-					</div>
-				</div>
-
-				<div class="col-lg-6">
-					<div id="right-wrapper">
+	<div id="container">
+		<div class="row">
 
 
-						<h3> BWIS Mentor Criteria : </h3>
+			<div class="col-lg-6 order-lg-2">
+				<div id="right-wrapper">
+					<h3> BWIS Mentor Criteria : </h3>
 						<br>
 						
 						<ul>
@@ -89,39 +55,74 @@
 							<li>Willing to share your time and knowledge in pursuit of a healthy , productive mentor/mentee relationship</li>
 							<li>Willing to take on one or more mentees</li>
 							<li>Considerate and respectiful of others despite of their personal beliefs, race, socio-economic background</li>
-						  </ul>
-<br><br><br><br>
+						</ul>
+						<br><br><br><br>
 
-<h3> BWIS Mentor Benefits : </h3>
-<br>
+						<h3> BWIS Mentor Benefits : </h3>
+						<br>
 
-<ul>
-	<li>Improve communication, supervisory and personal skills</li>
-	<li>Expanding connections and networks</li>
-	<li>Develop leadership and management qualities</li>
-	<li>Promoting self-reflection</li>
-  </ul>
+						<ul>
+							<li>Improve communication, supervisory and personal skills</li>
+							<li>Expanding connections and networks</li>
+							<li>Develop leadership and management qualities</li>
+							<li>Promoting self-reflection</li>
+						</ul>
 
-  <br><br><br><br>
+						<br><br><br><br>
 
-<h3> Code of conduct : </h3>
-<br>
-<ul>
-	<li>Establish and commit to the modes of communication to be used (email, mobile phones or text)</li>
-	<li>Establish and commit to date, time, length and frequency of sessions</li>
-	<li>Establish and commit to the permitted times for these communications</li>
-	<li>Respect the time and resources of both mentor and mentee</li>
-	<li>Avoid inappropriate interactions and unsuitable conduct towards each other 
-		</li>
-  </ul>
-
-
-					</div>
+						<h3> Code of conduct : </h3>
+						<br>
+						<ul>
+							<li>Establish and commit to the modes of communication to be used (email, mobile phones or text)</li>
+							<li>Establish and commit to date, time, length and frequency of sessions</li>
+							<li>Establish and commit to the permitted times for these communications</li>
+							<li>Respect the time and resources of both mentor and mentee</li>
+							<li>Avoid inappropriate interactions and unsuitable conduct towards each other 
+								</li>
+						</ul>
 				</div>
 			</div>
+
+
+			<div class="col-lg-6 order-lg-1">
+				<div id="left-wrapper">
+					<img id="profile-pic" src="{% static 'img/causes/mentor.jpg' %}">
+					<div id="left-wrapper-header">
+						<br>
+						<br>
+						<br>
+						<br>
+						<h3 class="cor"><span>Fill the form to become a mentor </span></h3>
+			
+					</div>
+
+					<div style="clear:left"></div>
+					<hr>
+
+					<!-- Add form here -->
+					<div class="form-group">
+						<form method="post">
+							{{ form.as_p }}
+							{% csrf_token %}
+							
+
+							<input class="myButton" style="background-color:#a09e9e" type="submit" value="Submit"
+								name="">
+
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+
+		
+
+
 		</div>
-		<br/><br/><br/>
-</section>
+	</div>
+	<br><br><br>
+	</section>
 
 
 
@@ -129,6 +130,9 @@
 
 
 
-{% endif %}
 
-{% endblock %}
+
+
+	{% endif %}
+
+	{% endblock content %}

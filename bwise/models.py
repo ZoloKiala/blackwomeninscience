@@ -49,15 +49,15 @@ class eventPost(models.Model):
         return int(self.date1.strftime("%d")) - int(self.dateStart.strftime("%d"))
 
     def dateday1(self):
-        dateleft = int(datetime.date.today().day) - int(self.dateStart.strftime("%d"))
+        dateleft = int(self.dateStart.strftime("%d")) - int(datetime.date.today().day)
         return dateleft
 
     def datehour1(self):
-        dateleft = int(datetime.datetime.now().hour) - int(self.dateStart.strftime("%H"))
+        dateleft =int(self.dateStart.strftime("%H"))  - int(datetime.datetime.now().hour)
         return dateleft
 
     def datemun1(self):
-        dateleft = int(datetime.datetime.now().minute) - int(self.dateStart.strftime("%M"))
+        dateleft = int(self.dateStart.strftime("%M")) - int(datetime.datetime.now().minute)
         return dateleft
 
     
@@ -95,20 +95,13 @@ class Donation(models.Model):
 
     )
 
-    Amount_donation = (
-        ('R500', 'R500'),
-        ('R1000', 'R1000'),
-        ('R1500', 'R1500'),
-
-    )
-
     Name = models.CharField(max_length = 200)
     Surname = models.CharField(max_length = 200)
     Organization = models.CharField(max_length = 200)
     Cellphone = models.IntegerField()
     Email = models.EmailField(unique = True)
     Reason_donation =  models.CharField(max_length = 200, choices= Reason_donation)
-    Amount_donation =  models.CharField(max_length = 200, choices= Amount_donation)
+    Amount_donation =  models.IntegerField()
     Date = models.DateTimeField(auto_now_add = timezone.now)
 
     def __str__(self):
@@ -167,6 +160,7 @@ class BWSfellowship(models.Model):
         ('Honours', 'Honours'),
         ('Bachelors', 'Bachelors'),
         ('Diploma', 'Diploma'),
+        ('None', 'None'),
 
     )
 
@@ -276,6 +270,7 @@ class BWSmembership(models.Model):
         ('Honours', 'Honours'),
         ('Bachelors', 'Bachelors'),
         ('Diploma', 'Diploma'),
+        ('None', 'None'),
 
     )
 
