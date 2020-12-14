@@ -242,7 +242,7 @@ class NewBwsFellowForm(forms.ModelForm):
 
     Scientific_discipline = forms.CharField(label="What is your scientific discipline ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
-    Subject_major = forms.CharField(label="What is your subject major ?", )
+    Subject_major = forms.CharField(label="What is your subject major ?",  widget=forms.TextInput(attrs={'class':'form-control'}))
 
     occupation_choices = [
      
