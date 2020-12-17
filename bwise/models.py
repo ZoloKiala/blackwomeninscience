@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.utils import timezone
 import datetime
+from datetime import date
 
 # Create your models here.
 
@@ -32,6 +33,11 @@ class eventPost(models.Model):
     date1 = models.DateTimeField(auto_now_add = timezone.now)
     dateFinish = models.DateTimeField()
     address = models.CharField(max_length = 256)
+    last_used = models.DateTimeField(default=datetime.datetime.now().date(), editable=False)
+
+    @property
+    def days_since_use(self):
+        return (self.last_used.date() - datetime.datetime.now().date()).days
     
 
     def __str__(self):
@@ -50,16 +56,16 @@ class eventPost(models.Model):
         return int(self.date1.strftime("%d")) - int(self.dateStart.strftime("%d"))
 
     def dateday1(self):
-        dateleft = int(self.dateStart.strftime("%d")) - int(datetime.date.today().day)
-        return dateleft
-
+        d = self.dateStart - self.last_used
+        return d.days
+    
     def datehour1(self):
-        dateleft =int(self.dateStart.strftime("%H"))  - int(datetime.datetime.now().hour)
-        return dateleft
+        hourleft = int(self.dateStart.strftime("%H"))  - int(datetime.datetime.now().hour)
+        return hourleft
 
     def datemun1(self):
-        dateleft = int(self.dateStart.strftime("%M")) - int(datetime.datetime.now().minute)
-        return dateleft
+        munleft = int(self.dateStart.strftime("%M")) - int(datetime.datetime.now().minute)
+        return munleft
 
     
     def datehour(self):
@@ -71,9 +77,7 @@ class eventPost(models.Model):
     def dateyear(self):
         return int(self.date1.strftime("%Y")) - int(self.dateStart.strftime("%Y"))
 
-    # def get_absolute_url(self):
-    #     """Returns the url to access a particular author instance."""
-    #     return reverse('eventpost-detail', args=[str(self.id)])
+
 
 class picture(models.Model):
 
