@@ -83,7 +83,7 @@ def index(request):
     pic = picture.objects.all()
     opic = Otherpicture.objects.all()
     article = Article.objects.all()
-    video = Videos.objects.filter(name="A clip from our hearted session for the: ""Women and Girls In Science Day"" @nrf_saasta @BWIS_SA") 
+    video = Videos.objects.filter(id = 6) 
 
     return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic, 'article':article, 'video':video })
 
