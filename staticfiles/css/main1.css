@@ -47,11 +47,16 @@
         }  
 
       .img-detail1{  
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
         object-fit: fill;
         }  
 
+    .img-detail2{  
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        }  
         table, td, th {
           border: 1px solid black;
           border-collapse: collapse;

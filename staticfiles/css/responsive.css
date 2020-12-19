@@ -38,13 +38,15 @@
         }  
 
     .default-header{
-        padding:0;
+        padding:0px;
     }
 
     .center2{
         /* margin-top:5px; */
         margin-bottom:-100px
     }
+
+
 }
 
 @media (max-width: 400px){
@@ -80,8 +82,5 @@
         margin-bottom:-100px
     }
 
-    .cor h3{
-        padding-top: -500px;
-    }
 
 }
