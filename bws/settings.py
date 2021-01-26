@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('AWS_ACCESS_KEY_ID')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blackwomaninscience.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    'bwise'
+    'bwise',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -168,6 +169,4 @@ AWS_DEFAULT_ACL = None
 django_heroku.settings(locals())
 
 
-
-
-
+# LOGIN_REDIRECT_URL = '/login/'

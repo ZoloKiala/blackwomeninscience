@@ -10,6 +10,7 @@ from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFello
 from django.conf import settings
 
 
+
 #Pdf options
 from django.conf import settings
 from django.http import HttpResponse
@@ -19,6 +20,7 @@ from xhtml2pdf import pisa
 
 # Create your views here.
 
+    
 class MemberListView(ListView):
     model = BWSmembership
     template_name = 'invoice.html'
@@ -113,11 +115,29 @@ def mentorship(request):
         form = NewBwsMentorForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
-			#messages.success(request, 'Account created successfully')
+            #messages.success(request, 'Account created successfully')
             return render(request, "mentorship.html", {'name': name})
         else:
             print('error form invalid')
     return render(request, 'mentorship.html', {'form': form})
+
+def donation(request):
+
+    form = DonationForm()
+
+    if request.method == 'POST':
+
+        form = DonationForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            #messages.success(request, 'Account created successfully')
+            return successMsg1(request)
+
+        else:
+            print('error form invalid')
+
+    return render(request, 'donation.html', {'form': form})
 
 def fellowship(request):
 
@@ -127,49 +147,31 @@ def fellowship(request):
         name = request.POST['Name']
         form = NewBwsFellowForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
-			#messages.success(request, 'Account created successfully')
-            return render(request, "fellowship.html", {'name': name})
+           form.save(commit=True)
+            #messages.success(request, 'Account created successfully')
+           return render(request, "fellowship.html", {'name': name})
         else:
             print('error form invalid')
     return render(request, 'fellowship.html', {'form': form})
 
 
-def donation(request):
-
-	form = DonationForm()
-
-	if request.method == 'POST':
-
-		form = DonationForm(request.POST)
-
-		if form.is_valid():
-			form.save(commit=True)
-			#messages.success(request, 'Account created successfully')
-			return successMsg1(request)
-
-		else:
-			print('error form invalid')
-
-	return render(request, 'donation.html', {'form': form})
-
 def membership(request):
 
-	form = NewBwsMemberForm()
+    form = NewBwsMemberForm()
 
-	if request.method == 'POST':
+    if request.method == 'POST':
+        name = request.POST['Name']
+        form = NewBwsMemberForm(request.POST)
 
-		form = NewBwsMemberForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            #messages.success(request, 'Account created successfully')
+            return render(request, "membership.html", {'name': name})
 
-		if form.is_valid():
-			form.save(commit=True)
-			#messages.success(request, 'Account created successfully')
-			return successMsg(request)
+        else:
+            print('error form invalid')
 
-		else:
-			print('error form invalid')
-
-	return render(request, 'membership.html', {'form': form})
+    return render(request, 'membership.html', {'form': form})
 
 
 def render_pdf_view(request):
@@ -193,11 +195,11 @@ def render_pdf_view(request):
 
 def successMsg(request):
 
-	return render(request, 'success1.html')
+    return render(request, 'success1.html')
 
 def successMsg1(request):
 
-	return render(request, 'success.html')
+    return render(request, 'success.html')
 
 
 

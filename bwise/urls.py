@@ -30,4 +30,5 @@ urlpatterns = [
     # path('event', EventListView.as_view(), name = 'eventpost'),
     # path('<int:pk>', EventDetailView.as_view(), name = 'eventpost-detail'),
     path('contact', views.contact, name = 'contact'),
+
 ]

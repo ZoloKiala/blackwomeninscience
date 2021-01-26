@@ -62,13 +62,18 @@
 								Join us
 							</a>
 							<div class="dropdown-menu">
+								<!-- <a class="dropdown-item" href="{% url 'member-list-view' %}">List of members</a> -->
 								<a class="dropdown-item" href="{% url 'membership' %}">Fellowship</a>
-								<a class="dropdown-item" href="{% url 'fellowship' %}">Membership</a>
 								<a class="dropdown-item" href="{% url 'mentorship' %}">Mentorship</a>
 							</div>
 						</li>
 	
 						<li><a href="{% url 'contact' %}">Contact</a></li>
+						<!-- {% if user.is_authenticated %}
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+						{% else %}
+						<li><a href="{% url 'login' %}">Login</a></li>
+						{% endif %} -->
 					</ul>
 				</div>
 			</div>

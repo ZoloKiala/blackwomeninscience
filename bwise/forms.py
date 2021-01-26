@@ -69,7 +69,7 @@ class NewBwsMemberForm(forms.ModelForm):
     )
 
     Town_attend_workshops = forms.ChoiceField(label="Select preferred town to attend BWIS Workshops/ Activities", choices= town_choices,
-    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+    widget=forms.HiddenInput(), required=False)
 
     qualification_choices = (
         ('Post PhD', 'Post PhD'),

@@ -245,6 +245,17 @@ html, body {
         color: red;
     }
 
+.appl {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0;
+}
+
+.eBox {
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
    
 
 

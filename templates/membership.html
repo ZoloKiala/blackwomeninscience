@@ -5,8 +5,6 @@
 {% block content %}
 
 
-
-
 <!--================ start banner Area =================-->
 <section class="banner-area relative">
 	<div class="overlay overlay-bg"></div>
@@ -21,7 +19,17 @@
 </section>
 <!--================ End banner Area =================-->
 
+{% if name %}
+<br/><br/><br/>
+<center>
+  <h2>Thank you {{ name }}</h2> <br>
+  <p class=appl>We have received  your application.</p>
+ <p class=appl>Due to the high volume of applications, we will not be able to respond to unsuccessful applicants</p>
+  <p class=appl>If you are successful, the BWIS management team will send you an invoice.</p>    
+</center>
+<br/><br/><br/>
 
+{% else %}
 <section class="">
 	<br><br><br>
 <div class="container">
@@ -29,6 +37,12 @@
 		<div class="col-lg-6">
 			<div class="section-title">
 				<h2>Become a <span>fellow</span></h2>
+				<br><br>
+				Our 2021 Fellowship workshops will be conducted online due to the Covid-19 restrictions. However, if the country reverts
+				to level-1, the workshops will be conducted in-person. The fellowship fee is a 
+				once off payment of <span>R1000</span>. The fee covers admin costs, study material, experts fees and a certificate.
+				If your application is successful, you will receive a notification and an invoice for payment.
+	
 			</div>
 		</div>
 	</div>
@@ -60,7 +74,8 @@
 							<li>You will be the first to know about all events, training courses and opportunities</li>
 							<li>Admission into BWIS training courses</li>
 							<li>Exclusive access to secret “BWIS Members Only” Facebook Network for you to connect and communicate with each other</li>
-							<li>You get the opportunity to join the BWIS Fellowship Programme</li>
+							<li>You get the opportunity to join events/ programs affiliated to BWIS</li>
+							<li>Fellowship fee will cover admin costs, study material for all three workshops, facilitator's fees and certificate.</li>
 						</ul>
 				
 				</div>
@@ -103,6 +118,8 @@
 		</div>
 	</div>
 	<br><br><br>
+
+	{% endif %}
 	</section>
 
 

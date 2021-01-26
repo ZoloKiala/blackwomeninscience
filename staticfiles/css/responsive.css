@@ -1,10 +1,33 @@
 
-
 /* small devices */
-@media (min-width: 768px) and (max-width:1024px) {
+@media (min-width: 1024px) and (max-width:1100px) {
+
+    .eBox{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 
 }
 
+
+/* small devices */
+@media (min-width: 850px) and (max-width:1024px) {
+
+    .eBox{
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width:850px) {
+
+    .eBox{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+}
 
 @media (max-width: 767px){
 
@@ -44,6 +67,11 @@
     .center2{
         /* margin-top:5px; */
         margin-bottom:-100px
+    }
+
+    .eBox{
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
 
