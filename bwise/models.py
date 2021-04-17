@@ -337,28 +337,24 @@ class BWSmembership(models.Model):
 
     def __str__(self):
         return self.Name
-# class Membership(models.Model):
 
-#     province_choices = (
-#         ('Eastern Cape', 'Eastern Cape'),
-#         ('Free State', 'Free State'),
-#         ('Gauteng', 'Gauteng'),
-#         ('KwaZulu-Natal', 'KwaZulu-Natal'),
-#         ('Limpopo', 'Limpopo'),
-#         ('Mpumalanga', 'Mpumalanga'),
-#         ('Northern Cape', 'Northern Cape'),
-#         ('Western Cape', 'Western Cape')
-#     )
+class EventBus(models.Model):
 
-#     fullname = models.CharField(max_length = 200)
-#     email = models.EmailField(unique = True)
-#     province = models.CharField(max_length = 200, choices= province_choices)
-#     university =models.CharField(max_length = 200)
+    fullname = models.CharField(max_length = 200)
+    interested_choices = (
+    
+        ('yes', 'yes'),
+        ('no', 'no'), 
+    )
+    email = models.EmailField(unique = True)
+    cellphone = models.IntegerField(unique = True)
+    scientific_d =models.CharField(max_length = 200)
+    notifications = models.CharField(max_length = 200, choices=interested_choices)
+    date = models.DateTimeField(default=timezone.now)
 
-#     def __str__(self):
-#         return self.fullname
 
-        
+    def __str__(self):
+        return self.fullname
 
 class BWSmentorship(models.Model):
 

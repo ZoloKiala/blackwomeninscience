@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row justify-content-lg-end align-items-center banner-content">
 			<div class="col-lg-5">
-				<h1 class="text-white">BWIS Event</h1>
+				<h1 class="text-white">BWIS Fellowship</h1>
 		
 			</div>
 		</div>
@@ -24,11 +24,11 @@
 
 	<div id="box">
 		<img id="succes-icon" src="{% static 'img/causes/check.png' %}">
-		<h4>Thank you {{ name }}, your form has been submitted</h4>
-		
+		<h4>Thank you for applying for fellowship</h4>
+		<p>Our team will contact you shortly</p>
 		<hr>
 		
-		<a class="myButton" href="{% url 'index' %}">&#x2190;Return to the home page</a>
+		<a class="myButton" href="{% url 'member-list-view' %}">&#x2190;Print your invoice</a>
 	</div>
 
 {% endblock content %}

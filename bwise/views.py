@@ -6,8 +6,9 @@ from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm
+from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm, EventBusForm
 from django.conf import settings
+from django.db import IntegrityError
 
 
 
@@ -154,25 +155,6 @@ def fellowship(request):
     return render(request, 'fellowship.html', {'form': form})
 
 
-def membership(request):
-
-    form = NewBwsMemberForm()
-
-    if request.method == 'POST':
-        name = request.POST['Name']
-        form = NewBwsMemberForm(request.POST)
-
-        if form.is_valid():
-            form.save(commit=True)
-            #messages.success(request, 'Account created successfully')
-            return render(request, "membership.html", {'name': name})
-
-        else:
-            print('error form invalid')
-
-    return render(request, 'membership.html', {'form': form})
-
-
 def render_pdf_view(request):
     template_path = 'success1.html'
     context = {'myvar': 'this is your template context'}
@@ -205,11 +187,41 @@ def successMsg1(request):
 def causes(request):
     return render(request, 'causes.html')
 
+def membership(request):
+
+    form = NewBwsMemberForm()
+
+    if request.method == 'POST':
+        name = request.POST['Name']
+        form = NewBwsMemberForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            #messages.success(request, 'Account created successfully')
+            return render(request, "membership.html", {'name': name})
+
+        else:
+            print('error form invalid')
+
+    return render(request, 'membership.html', {'form': form})
+
 def event(request):
     
     event1 = eventPost.objects.all()
+    form = EventBusForm()
+
+    if request.method == 'POST':
+        name = request.POST['fullname']
+        form = EventBusForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            #messages.success(request, 'Account created successfully')
+            return render(request, "success1.html", { "name":name})
+        else:
+            print('error form invalid')
     
-    return render(request, 'eventpost.html', {'event1': event1})
+    return render(request, 'eventpost.html', {'event1': event1, 'form':form })
 
 
 def event_detail(request, pk):

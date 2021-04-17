@@ -1,6 +1,6 @@
 from django import forms
 
-from  bwise.models import BWSmembership, Donation, BWSmentorship, BWSfellowship
+from  bwise.models import BWSmembership, Donation, BWSmentorship, BWSfellowship, EventBus
 
 
 
@@ -404,4 +404,32 @@ class NewBwsMentorForm(forms.ModelForm):
         #     'Gender' : forms.Select(choices= BWSmembership.genre_choices, attrs = {'class': "form-control"}),
         #     'Description' : forms.Textarea(attrs = {'class': "form-control"}),
         #     'Town_attend_workshops' : forms.TextInput( attrs = {'class': "form-control"}),
+
+
+
+class EventBusForm(forms.ModelForm):
+
+    fullname = forms.CharField(label="What is your name ?", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    cellphone = forms.IntegerField(label="Your cellphone number ?", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    email = forms.EmailField( 
+        label="Please enter your email address", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    scientific_d = forms.CharField(label="What is your scientific discipline ?", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    interested_choices1 = (
+    
+        ('yes', 'yes'),
+        ('no', 'no'), 
+    )
+    notifications = forms.ChoiceField(label="Would you like to receive notifications from BWIS on future events ?", 
+                    choices = interested_choices1, widget=forms.Select(attrs={'style': 'width:100px', 'class':'form-control narrow-select'}))
+
+    class Meta():
+
+        model = EventBus
+        exclude = ['date']
+        error_css_class = "error"
+
 
