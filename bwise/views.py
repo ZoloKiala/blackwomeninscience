@@ -79,15 +79,6 @@ def donor_render_pdf_view(request, *args, **kwargs):
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
-def index(request):
-
-    event1 = eventPost.objects.all()
-    pic = picture.objects.all()
-    opic = Otherpicture.objects.all()
-    article = Article.objects.all()
-    video = Videos.objects.filter(id = 6) 
-
-    return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic, 'article':article, 'video':video })
 
 def about(request):
     pic = picture.objects.all()
@@ -204,6 +195,27 @@ def membership(request):
             print('error form invalid')
 
     return render(request, 'membership.html', {'form': form})
+def index(request):
+
+    event1 = eventPost.objects.all()
+    pic = picture.objects.all()
+    opic = Otherpicture.objects.all()
+    article = Article.objects.all()
+    video = Videos.objects.filter(id = 6)
+    form = EventBusForm() 
+
+    if request.method == 'POST':
+        name = request.POST['fullname']
+        form = EventBusForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            #messages.success(request, 'Account created successfully')
+            return render(request, "success1.html", { "name":name})
+        else:
+            print('error form invalid')
+
+    return render(request, 'index.html', {'event1': event1, 'pic': pic, 'opic':opic, 'article':article, 'video':video, 'form':form })
 
 def event(request):
     
