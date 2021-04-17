@@ -22,8 +22,6 @@ class Videos(models.Model):
     def __str__(self):
         return self.name
 
-    
-
 class eventPost(models.Model):
 
     title = models.CharField(max_length = 200, unique = True)
@@ -76,14 +74,14 @@ class eventPost(models.Model):
 
     def dateyear(self):
         return int(self.date1.strftime("%Y")) - int(self.dateStart.strftime("%Y"))
-
-
+    
+    def __str__(self):
+        return self.title
 
 class picture(models.Model):
 
     about = models.ImageField(upload_to = 'pics')
     desc = models.TextField(default = True)
-
 
 class Otherpicture(models.Model):
 
@@ -111,9 +109,6 @@ class Donation(models.Model):
 
     def __str__(self):
         return self.Name
-
-
-
 
 class BWSfellowship(models.Model):
 
@@ -348,7 +343,9 @@ class EventBus(models.Model):
     )
     email = models.EmailField(unique = True)
     cellphone = models.IntegerField(unique = True)
-    scientific_d =models.CharField(max_length = 200)
+    scientific_d = models.CharField(max_length = 200)
+    business_i = models.CharField(max_length = 400, default=True)
+    gain_w = models.CharField(max_length = 400, default=True)
     notifications = models.CharField(max_length = 200, choices=interested_choices)
     date = models.DateTimeField(default=timezone.now)
 

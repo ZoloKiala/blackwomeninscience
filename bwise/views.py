@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import eventPost, picture, Otherpicture, BWSmembership, Article, Donation, Videos
+from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm, EventBusForm
+from .models import  Donation, BWSmembership, eventPost, picture, Otherpicture,Article, Videos
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm, EventBusForm
 from django.conf import settings
-from django.db import IntegrityError
-
 
 
 #Pdf options
@@ -195,6 +193,7 @@ def membership(request):
             print('error form invalid')
 
     return render(request, 'membership.html', {'form': form})
+
 def index(request):
 
     event1 = eventPost.objects.all()
