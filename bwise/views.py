@@ -198,11 +198,11 @@ def index(request):
     opic = Otherpicture.objects.all()
     article = Article.objects.all()
     video = Videos.objects.filter(id = 6)
-    form = EventBusForm() 
+    form = Event1BusForm() 
 
     if request.method == 'POST':
         name = request.POST['fullname']
-        form = EventBusForm(request.POST)
+        form = Event1BusForm(request.POST)
 
         if form.is_valid():
             form.save(commit=True)
