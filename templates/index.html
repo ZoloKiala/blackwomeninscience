@@ -405,14 +405,14 @@
 
 			<div class="row">
 
-				{% for event in event1 %}
+				{% if event1 %}
 
 				<div class="eBox col-lg-12">
 					<div class="single_upcoming_event justify-content-center">
 						<div class="row align-items-center">
 							<div class="col-lg-6 col-md-6">
 								<figure>
-									<img class="img-fluid w-100" src="{{ event.image.url }}" alt="">
+									<img class="img-fluid w-100" src="{{ event1.image.url }}" alt="">
 									<div class="">
 										
 									</div>
@@ -421,22 +421,22 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="content_wrapper">
 									<h3 class="title">
-										<a href="{{ event.id }}" > {{ event.title }} </a> 
+										<a href="{{ event1.id }}" > {{ event1.title }} </a> 
 									</h3>
 									<p>
-										{{ event.description|truncatechars:100 }}
+										{{ event1.description|truncatechars:100 }}
 									</p>
 									<div class="d-flex  justify-content-lg-start justify-content-center">
 										<div class="single_time">
 										  
-											<p> <b>Date:</b> {{ event.dateeventS }}</p>
-											<p> <b>Time:</b> {{ event.dateStart|date:"P" }}</p> <br>
+											<p> <b>Date:</b> {{ event1.dateeventS }}</p>
+											<p> <b>Time:</b> {{ event1.dateStart|date:"P" }}</p> <br>
 										
-											<b>Registration is close</b>
-											<!-- <form method="POST">
+											<!-- <b>Registration is close</b> -->
+											<form method="POST">
 												{% csrf_token %}	
 										
-											<a href="" data-toggle="modal" data-target="#Modelsignup" class="primary-btn">
+											<a href="" data-toggle="modal" data-target="#Modelsignup" class="primary-btn" id ='register_b'>
 												Register
 												<i class="ti-angle-right ml-1"></i>
 											</a>
@@ -451,7 +451,7 @@
 													  </button>
 													</div>
 													<div class="modal-body">
-													  {{ form }}
+													  {{ form.as_p }}
 													</div>
 													<div class="modal-footer">
 													  <button type="submit" class="btn btn-primary">Submit</button>
@@ -461,7 +461,7 @@
 												</div>
 											  </div>
 											</form>
-									 -->
+									 
 										</div>
 									
 									</div>
@@ -472,7 +472,7 @@
 					</div>
 				</div>
 				
-				{% endfor %}
+				{% endif %}
 
 			</div>
 			

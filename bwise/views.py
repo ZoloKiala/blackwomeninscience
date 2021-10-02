@@ -193,7 +193,7 @@ def membership(request):
 
 def index(request):
 
-    event1 = eventPost.objects.all()
+    event1 = eventPost.objects.latest('id')
     pic = picture.objects.all()
     opic = Otherpicture.objects.all()
     article = Article.objects.all()
