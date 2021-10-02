@@ -26,6 +26,7 @@ urlpatterns = [
     path('communication', views.communication, name = 'communication'),
     path('mentorship', views.mentorship, name = 'mentorship'),
     path('event', views.event, name = 'eventpost'),
+    path('event_p', views.event_p, name = 'eventpost_p'),
     path('<int:pk>', views.event_detail, name='detail'),
     # path('event', EventListView.as_view(), name = 'eventpost'),
     # path('<int:pk>', EventDetailView.as_view(), name = 'eventpost-detail'),

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm, EventBusForm
+from .forms import NewBwsMemberForm, DonationForm, NewBwsMentorForm, NewBwsFellowForm, Event1BusForm
 from .models import  Donation, BWSmembership, eventPost, picture, Otherpicture,Article, Videos
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
@@ -76,7 +76,6 @@ def donor_render_pdf_view(request, *args, **kwargs):
     if pisa_status.err:
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
-
 
 def about(request):
     pic = picture.objects.all()
@@ -171,8 +170,6 @@ def successMsg1(request):
 
     return render(request, 'success.html')
 
-
-
 def causes(request):
     return render(request, 'causes.html')
 
@@ -218,12 +215,12 @@ def index(request):
 
 def event(request):
     
-    event1 = eventPost.objects.all()
-    form = EventBusForm()
+    event1 = eventPost.objects.latest('id')
+    form = Event1BusForm()
 
     if request.method == 'POST':
         name = request.POST['fullname']
-        form = EventBusForm(request.POST)
+        form = Event1BusForm(request.POST)
 
         if form.is_valid():
             form.save(commit=True)
@@ -234,6 +231,13 @@ def event(request):
     
     return render(request, 'eventpost.html', {'event1': event1, 'form':form })
 
+def event_p(request):
+    
+    event1 = eventPost.objects.all()
+
+    return render(request, 'eventpost_p.html', {'event1': event1})
+
+
 
 def event_detail(request, pk):
     
@@ -243,7 +247,6 @@ def event_detail(request, pk):
               }
     
     return render(request, 'eventpost_detail.html', context)
-
 
 def contact(request):
     if request.method == 'POST':

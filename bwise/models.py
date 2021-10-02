@@ -333,25 +333,25 @@ class BWSmembership(models.Model):
     def __str__(self):
         return self.Name
 
-class EventBus(models.Model):
+# class EventBus(models.Model):
 
-    fullname = models.CharField(max_length = 200)
-    interested_choices = (
+#     fullname = models.CharField(max_length = 200)
+#     interested_choices = (
     
-        ('yes', 'yes'),
-        ('no', 'no'), 
-    )
-    email = models.EmailField(unique = True)
-    cellphone = models.IntegerField(unique = True)
-    scientific_d = models.CharField(max_length = 200)
-    business_i = models.CharField(max_length = 400, default=True)
-    gain_w = models.CharField(max_length = 400, default=True)
-    notifications = models.CharField(max_length = 200, choices=interested_choices)
-    date = models.DateTimeField(default=timezone.now)
+#         ('yes', 'yes'),
+#         ('no', 'no'), 
+#     )
+#     email = models.EmailField(unique = True)
+#     cellphone = models.IntegerField(unique = True)
+#     scientific_d = models.CharField(max_length = 200)
+#     business_i = models.CharField(max_length = 400, default=True)
+#     gain_w = models.CharField(max_length = 400, default=True)
+#     notifications = models.CharField(max_length = 200, choices=interested_choices)
+#     date = models.DateTimeField(default=timezone.now)
 
 
-    def __str__(self):
-        return self.fullname
+#     def __str__(self):
+#         return self.fullname
 
 class BWSmentorship(models.Model):
 
@@ -417,6 +417,37 @@ class BWSmentorship(models.Model):
         return self.Name
 
 
+class Event1Bus(models.Model):
+    
+    age_choices = (
+        ('18-24', '18-24'),
+        ('25-29', '25-29'), 
+         ('30-34', '30-34'),
+        ('35-39', '35-39'), 
+         ('40-49', '40-49'),
+        ('49 and older', '49 and older'), 
+    )
+
+    qualification_choices = (
+        ('Post PhD', 'Post PhD'),
+        ('PhD', 'PhD'),
+        ('Masters', 'Masters'),  
+        ('Honours', 'Honours'),
+        ('Bachelors', 'Bachelors'),
+        ('Diploma', 'Diploma'),
+        ('None', 'None'),
+
+    )
+    
+    fullname = models.CharField(max_length = 200)
+    email = models.EmailField(unique = True)
+    degree_level = models.CharField(max_length = 200, choices = qualification_choices)
+    age = models.CharField(max_length = 200, choices= age_choices)
+    date = models.DateTimeField(default=timezone.now)
+
+
+    def __str__(self):
+        return self.fullname
 
 
    
