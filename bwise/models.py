@@ -186,11 +186,13 @@ class BWSfellowship(models.Model):
     )
 
     hear_choices = (
-        ('social media', 'Social media'),
-        ('radio', 'Radio'), 
-        ('friend', 'Friend'),
-        ('colleague', 'Colleague'),
+        ('facebook', 'Facebook'),
+        ('twitter', 'Twitter'), 
+        ('instagram', 'Instagram'),
+        ('linkedIn', 'LinkedIn'),
         ('university', 'University'),
+        ('friend', 'Friend'),
+        ('colleague', 'Colleague ')
     )
 
 

@@ -254,11 +254,13 @@ class NewBwsFellowForm(forms.ModelForm):
     widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
     hear_choices = (
-        ('social media', 'Social media'),
-        ('radio', 'Radio'), 
-        ('friend', 'Friend'),
-        ('colleague', 'Colleague'),
+        ('facebook', 'Facebook'),
+        ('twitter', 'Twitter'), 
+        ('instagram', 'Instagram'),
+        ('linkedIn', 'LinkedIn'),
         ('university', 'University'),
+        ('friend', 'Friend'),
+        ('colleague', 'Colleague ')
     )
 
     Where_hear_organisation = forms.ChoiceField(label="Where did you hear about our organisation ?", choices= hear_choices,
