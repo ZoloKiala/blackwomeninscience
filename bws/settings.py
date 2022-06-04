@@ -144,8 +144,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_ACCESS_ACCESS_KEY")
+AWS_ACCESS_KEY_ID = 'AKIAWCURHXKD23HW5NAE' ###os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = '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'      ###os.environ.get("AWS_ACCESS_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = 'blackwomeninscience-files2'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
@@ -172,3 +172,8 @@ django_heroku.settings(locals())
 
 
 # LOGIN_REDIRECT_URL = '/login/'
+
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+# AWS_S3_ADDRESSING_STYLE = "virtual"
+# AWS_S3_SIGNATURE_VERSION = "s3v4"
+# AWS_DEFAULT_ACL = 'public'

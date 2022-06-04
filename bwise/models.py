@@ -26,17 +26,17 @@ class eventPost(models.Model):
 
     title = models.CharField(max_length = 200, unique = True)
     description = models.TextField()
-    image = models.ImageField(upload_to = 'pics')
+    image = models.ImageField(upload_to = 'pics', blank=True, null=True)
     dateStart = models.DateTimeField()
     date1 = models.DateTimeField(auto_now_add = timezone.now)
     dateFinish = models.DateTimeField()
     address = models.CharField(max_length = 256)
-    last_used = models.DateTimeField(default=datetime.datetime.now().date(), editable=False)
+    last_used = models.DateTimeField(default=timezone.now(), editable=False)
 
     @property
-    def days_since_use(self):
-        return (self.last_used.date() - datetime.datetime.now().date()).days
-    
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
     def __str__(self):
         return self.title
