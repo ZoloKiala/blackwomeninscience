@@ -1,0 +1,81 @@
+{% extends 'template.html' %}
+
+{% block title %} Donation {% endblock %}
+{% load static %}
+{% block content %}
+
+
+
+
+<!--================ start banner Area =================-->
+<section class="banner-area relative">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row justify-content-lg-end align-items-center banner-content">
+			<div class="col-lg-5">
+				<h1 class="text-white">Donation</h1>
+		
+			</div>
+		</div>
+	</div>
+</section>
+<!--================ End banner Area =================-->
+
+
+<section class="">
+	<br><br><br>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-6">
+			<div class="section-title">
+				<h2>Make your <span>donation</span> here</h2>
+			</div>
+		</div>
+	</div>
+
+	<div id="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div id="left-wrapper">
+					<img id="profile-pic" src="{% static 'img/causes/donate.jpg' %}">
+					<div id="left-wrapper-header">
+						<br>
+						<br>
+						<h3><span>Donate to support our work</span></h3>
+			
+					</div>
+
+					<div style="clear:left"></div>
+					<hr>
+
+					<!-- Add form here -->
+					<div class="form-group">
+						<form method="post">
+							{{ form.as_p }}
+							{% csrf_token %}
+							<input class="myButton" style="background-color:#a09e9e" type="submit" value="Submit"
+								name="">
+
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<br><br><br>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+	{% endblock content %}

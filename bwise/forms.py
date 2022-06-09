@@ -296,6 +296,8 @@ class DonationForm(forms.ModelForm):
 
     Surname = forms.CharField(label="What is your surname ?", widget=forms.TextInput(attrs={'class':'form-control'}))
 
+    Organization = forms.CharField(label="What is your organization ?", widget=forms.TextInput(attrs={'class':'form-control'}))
+
     Reason_donation = (
         ('Fundraising', 'Fundraising'),
         ('Mentorship program', 'Mentorship program'),
