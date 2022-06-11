@@ -256,6 +256,35 @@ html, body {
   padding-right: 300px;
 }
 
-   
+
+/* image section */
+#profile-pic1 {
+  width: 550px;
+  height: auto;
+  margin-left: 250px;
+
+}
+
+/* Donation */
+
+#don {
+  color: white;
+  background-color: #ff573d;
+  padding: 10px;
+  border-radius: 5px;
+  
+}
+
+#don_1 {
+  padding-top: 50px;
+}
+
+
+#don_2 {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+
 
 
