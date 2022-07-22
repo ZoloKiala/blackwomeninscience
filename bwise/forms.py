@@ -2,6 +2,8 @@ from django import forms
 
 from  .models import eventPost, BWSmembership, Donation, BWSmentorship, BWSfellowship, Event1Bus
 
+from phonenumber_field.formfields import PhoneNumberField
+
 class NewBwsMemberForm(forms.ModelForm):
 
     Name = forms.CharField(label="What is your name", widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -15,7 +17,7 @@ class NewBwsMemberForm(forms.ModelForm):
 
     Gender = forms.ChoiceField(choices=genre_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
-    Cellphone = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    Cellphone = PhoneNumberField(label ="Phone (Please state your country code eg. +27)", widget=forms.TextInput(attrs={'class':'form-control'}))
 
     Email = forms.EmailField( 
         label="Please enter your email address", widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -43,7 +45,20 @@ class NewBwsMemberForm(forms.ModelForm):
         ('Western Cape', 'Western Cape')
     ]
 
-    Province = forms.ChoiceField(choices=province_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+    country_choices = [
+       ('South Africa', 'South Africa'),
+        ('Outside South Africa', 'Outside South Africa'), 
+
+    ]
+
+    Country = forms.ChoiceField(choices = country_choices,
+            widget=forms.Select(attrs={'id':'counsel', 'class':'form-control', 'class': 'narrow-select'}))
+
+    City = forms.CharField(widget=forms.TextInput(attrs={'id':'citysel','class':'form-control'}),
+                required=False)
+
+    Province = forms.ChoiceField(choices=province_choices, widget=forms.Select(attrs={'id':'provsel', 'class':'form-control', 'class': 'narrow-select_p'}),
+                                        required=False,)
     
     University = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
@@ -57,9 +72,6 @@ class NewBwsMemberForm(forms.ModelForm):
 
     Race = forms.ChoiceField(choices= race_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
-    Country = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-
-    
     town_choices = (
         ('Johannesburg', 'Johannesburg'),
         ('Durban', 'Durban'),
@@ -148,6 +160,16 @@ class NewBwsMemberForm(forms.ModelForm):
     max_length = 400,
     widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
 
+    def clean(self):
+        Country =  self.cleaned_data.get('Country')
+
+        if Country == "Outside South Africa":
+            self.fields_required(['City'])
+
+        else:
+            self.cleaned_data['City'] = ""
+
+        return self.cleaned_data
     
     class Meta():
 
@@ -155,13 +177,8 @@ class NewBwsMemberForm(forms.ModelForm):
         exclude = ['Date']
         error_css_class = "error"
 
-        # widgets = {
-        #     'Name' : forms.TextInput(attrs = {'class': "form-control"}),
-        #     'Email' : forms.TextInput(attrs = {'class': "form-control"}),
-        #     'Surname' : forms.TextInput(attrs = {'class': "form-control"}),
-        #     'Gender' : forms.Select(choices= BWSmembership.genre_choices, attrs = {'class': "form-control"}),
-        #     'Description' : forms.Textarea(attrs = {'class': "form-control"}),
-        #     'Town_attend_workshops' : forms.TextInput( attrs = {'class': "form-control"}),
+
+
 
 class NewBwsFellowForm(forms.ModelForm):
 
@@ -193,6 +210,11 @@ class NewBwsFellowForm(forms.ModelForm):
 
     Age = forms.ChoiceField(choices=age_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
 
+    Country = forms.CharField(label="Enter your country name", widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    City = forms.CharField(label="Enter your city name", widget=forms.TextInput(attrs={'class':'form-control'}))
+    
+    
     province_choices = [
         ('Eastern Cape', 'Eastern Cape'),
         ('Free State', 'Free State'),
@@ -202,11 +224,10 @@ class NewBwsFellowForm(forms.ModelForm):
         ('Mpumalanga', 'Mpumalanga'),
         ('Northern Cape', 'Northern Cape'),
         ('Western Cape', 'Western Cape'),
-        ('Other', 'Other')
     ]
-
-    Province = forms.ChoiceField(choices=province_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
     
+    Province = forms.ChoiceField(choices=province_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
+
     University = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
     race_choices = [
@@ -218,9 +239,6 @@ class NewBwsFellowForm(forms.ModelForm):
     ]
 
     Race = forms.ChoiceField(choices= race_choices, widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'}))
-
-    Country = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-
 
     qualification_choices = (
         ('Post PhD', 'Post PhD'),
@@ -264,7 +282,7 @@ class NewBwsFellowForm(forms.ModelForm):
     )
 
     Where_hear_organisation = forms.ChoiceField(label="Where did you hear about our organisation ?", choices= hear_choices,
-    widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'})) 
+        widget=forms.Select(attrs={'class':'form-control', 'class': 'narrow-select'})) 
 
     interested_choices = [
     

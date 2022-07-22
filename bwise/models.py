@@ -1,8 +1,10 @@
+from enum import unique
 from django.db import models
 from datetime import datetime
 from django.utils import timezone
 import datetime
 from datetime import date
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -120,8 +122,7 @@ class BWSfellowship(models.Model):
         ('Limpopo', 'Limpopo'),
         ('Mpumalanga', 'Mpumalanga'),
         ('Northern Cape', 'Northern Cape'),
-        ('Western Cape', 'Western Cape'),
-        ('Other', 'Other')
+        ('Western Cape', 'Western Cape')
     )
 
     genre_choices = (
@@ -204,9 +205,9 @@ class BWSfellowship(models.Model):
     Age = models.CharField(max_length = 200, choices= age_choices)
     University =models.CharField(max_length = 200)
     Race = models.CharField(max_length = 200, choices= race_choices)
-    City = models.CharField(max_length = 200)
-    Province = models.CharField(max_length = 200, choices= province_choices)
     Country = models.CharField(max_length = 200)
+    Province = models.CharField(max_length = 200, choices= province_choices)
+    City = models.CharField(max_length = 200, null=True)
     Last_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
     Current_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
     Scientific_discipline = models.CharField(max_length = 200)
@@ -233,7 +234,7 @@ class BWSmembership(models.Model):
         ('Limpopo', 'Limpopo'),
         ('Mpumalanga', 'Mpumalanga'),
         ('Northern Cape', 'Northern Cape'),
-        ('Western Cape', 'Western Cape')
+        ('Western Cape', 'Western Cape'),
     )
 
     genre_choices = (
@@ -305,17 +306,23 @@ class BWSmembership(models.Model):
         ('university', 'University'),
     )
 
+    country_choices = (
+        ('South Africa', 'South Africa'),
+        ('Outside South Africa', 'Outside South Africa'), 
+
+    )
 
     Name = models.CharField(max_length = 200)
     Surname = models.CharField(max_length = 200)
     Gender = models.CharField(max_length = 200, choices= genre_choices)
-    Cellphone = models.IntegerField()
-    Email = models.EmailField(unique = True)
+    Cellphone = PhoneNumberField()
+    Email = models.EmailField()
     Age = models.CharField(max_length = 200, choices= age_choices)
+    Country = models.CharField(max_length = 200, choices= country_choices)
+    City = models.CharField(max_length = 200, null=True)
     Province = models.CharField(max_length = 200, choices= province_choices)
     University =models.CharField(max_length = 200)
     Race = models.CharField(max_length = 200, choices= race_choices)
-    Country = models.CharField(max_length = 200)
     Town_attend_workshops = models.CharField(max_length = 200, choices = town_choices)
     Last_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
     Current_academic_qualification = models.CharField(max_length = 200, choices = qualification_choices)
