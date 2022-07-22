@@ -71,10 +71,12 @@ th {
 text-align: left;
 }
   
-.narrow-select { width: 100%;
+.narrow-select, .narrow-select_p 
+{ width: 100%;
   margin-bottom: 20px;
-  line-height: -20px}
-
+  line-height: -20px;
+  display: normal
+}
 
 #more {display: none;}
 #more1 {display: none;}
@@ -283,6 +285,15 @@ html, body {
 #don_2 {
   text-align: justify;
   text-justify: inter-word;
+}
+
+
+input#citysel{
+  display:none;
+}
+
+label[for="citysel"] {
+  display: none;
 }
 
 
