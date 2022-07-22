@@ -200,3 +200,28 @@ $(document).ready(function () {
 //////// This is for stripe payment //////
 
 });
+
+
+
+
+$("#counsel").change(function(e){
+  
+  if (e.target.value == 'Outside South Africa') {
+    
+    $("label[for=citysel]").show();
+    $("#citysel").show();
+    $("label[for=provsel]").hide();
+    $(".narrow-select_p ").hide()
+  
+  }
+  
+  else {
+    $("#citysel").hide();
+    $("label[for=citysel]").hide();
+    $("label[for=provsel]").show();
+    $(".narrow-select_p").show();
+    $("#provsel").hide()
+   
+  }
+  
+  });
