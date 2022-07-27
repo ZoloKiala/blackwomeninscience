@@ -160,16 +160,6 @@ class NewBwsMemberForm(forms.ModelForm):
     max_length = 400,
     widget=forms.Textarea(attrs={'rows':5, 'class':'form-control'}))
 
-    def clean(self):
-        Country =  self.cleaned_data.get('Country')
-
-        if Country == "Outside South Africa":
-            self.fields_required(['City'])
-
-        else:
-            self.cleaned_data['City'] = ""
-
-        return self.cleaned_data
     
     class Meta():
 
